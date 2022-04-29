@@ -12,19 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Titl": {
+    "Title": {
       "type": "string"
     },
-    "Descriptio": {
+    "Description": {
       "type": "text"
     },
-    "Pric": {
+    "Price": {
       "type": "decimal"
     },
-    "Feature": {
+    "Featured": {
       "type": "boolean"
     },
-    "Imag": {
+    "Image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -35,10 +35,10 @@
         "audios"
       ]
     },
-    "Image_ur": {
+    "Image_url": {
       "type": "string"
     },
-    "Image_alt_tex": {
+    "Image_alt_text": {
       "type": "string"
     }
   }
