@@ -40,6 +40,9 @@
     },
     "Image_alt_text": {
       "type": "string"
+    },
+    "Test": {
+      "type": "string"
     }
   }
 }
