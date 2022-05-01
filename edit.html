@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit product page">
+    <script src="https://kit.fontawesome.com/591f5bf3d7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/ufr7cbx.css">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Baby Bliss | Edit products</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <div class="nav__list__container">
+                <i class="fas fa-bars"></i>
+                <ul class="nav__list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="basket.html">Basket
+                            <i class="fas fa-shopping-bag" aria-label="shopping basket"></i>
+                            <div class="basket__count"></div>
+                        </a></li>
+                    <li><a href="favorites.html">Favorites
+                            <i class="far fa-heart without__fill"></i>
+                            <i class="fas fa-heart with__fill"></i>
+                        </a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="add_product.html">Add Products</a></li>
+                    <li><a href="login.html">Login
+                            <i class="fas fa-user-alt"></i>
+                        </a></li>
+                    </a>
+                </ul>
+            </div>
+            <div class="nav__logo__container">
+
+            </div>
+            <div class="alt__nav__container">
+                <div class="alt__nav__basket">
+                    <i class="fas fa-shopping-bag" aria-label="shopping basket"></i>
+                    <div class="basket__count"></div>
+                </div>
+                <div class="alt__nav__favorites">
+                    <i class="far fa-heart without__fill"></i>
+                    <i class="fas fa-heart with__fill"></i>
+                </div>
+                <div class="alt__nav__user">
+                    <p>Logout user</p>
+                    <i class="fas fa-user-alt"></i>
+                </div>
+            </div>
+
+        </header>
+        <main>
+            <section class="edit__product__container">
+                <div class="back__to__products__container">
+                    <i class="fal fa-angle-left"></i>
+                    <p>Back to all products</p>
+                </div>
+                <h1>Edit product </h1>
+                <form class="add__product__form">
+                    <label for="title">Product title</label>
+                    <input type="text" name="title" id="title" class="title">
+                    <p>Minimum 5 characters</p>
+                    <div class="title__error"></div>
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="description"></textarea>
+                    <p>Minimum 20 characters</p>
+                    <div class="description__error"></div>
+                    <label for="price">Price</label>
+                    <input type="number" name="price" id="price" class="price">
+                    <p>Must have 2 decimals ex: 99,89</p>
+                    <div class="price__error"></div>
+                    <label for="image">Upload image</label>
+                    <input type="file" name="image" id="image" class="image">
+                    <p>Must be a JPG, JPEG or PNG image. Max 200mb</p>
+                    <div class="image__error"></div>
+                    <h5>Featured</h5>
+                    <label for="featured__yes"><i class="fas fa-check-circle"></i></label>
+                    <input type="radio" name="featured__yes" id="featured__yes" class="featured__yes">
+                    <label for="featured__no"><i class="fas fa-times-circle"></i></label>
+                    <input type="radio" name="featured__no" id="featured__no" class="featured__no">
+                </form>
+                <button class="standard__cta__btn">Edit product</button>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div class="footer__grid">
+            <div class="footer__logo__container">
+                <img src="logo/Logo_svg.svg" alt="Baby Bliss logo">
+            </div>
+            <div class="footer__social__container">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+            <div class="footer__info__container">
+                <h4>Company & Customer Care</h4>
+                <a href="about.html">
+                    <p>About Us</p>
+                </a>
+                <a href="">
+                    <p>Contact Us</p>
+                </a>
+                <a href="">
+                    <p>Shipping & Delivery</p>
+                </a>
+                <a href="">
+                    <p>Terms & Conditions</p>
+                </a>
+                <a href="">
+                    <p>Returns & Exchanges</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
