@@ -1,0 +1,25 @@
+$font-heading: "lato",
+sans-serif;
+
+$font-primary: open-sans,
+sans-serif;
+
+$font-button: ff-uberhand-pro,
+sans-serif;
+
+$colours: (primaryred: #E28D8D,
+    secondaryturquoise: #B2C6BD,
+    tertiarygreen: #CFD0C3,
+    highlightorange: #D4A591,
+    backgroundwhite: #F7F1F1,
+    textcolourprimary: #423F38,
+    textcoloursecondary: #262421);
+
+$mixColour: #B2C6BD 0%,
+#B2C6BD 30%,
+transparent 70%,
+transparent 100%;
+
+@function getColour($colour) {
+    @return map-get($colours, $colour);
+}
