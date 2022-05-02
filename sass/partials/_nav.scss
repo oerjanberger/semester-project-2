@@ -1,17 +1,19 @@
 header {
-    background: linear-gradient(left, $mixColour);
+    background: linear-gradient(to right, $mixColour);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
 
     .nav__list__container {
         align-self: center;
         margin-left: 20px;
     }
 
+
+
     .nav__list {
+        display: none;
         position: absolute;
-        @include gradient(left, $mixColour);
+        background: linear-gradient(to right, $mixColour);
         top: 76px;
         left: 0px;
         height: 100%;
@@ -24,10 +26,16 @@ header {
         }
     }
 
-    .nav__logo {
-        margin-top: 10px;
-        max-width: 100px;
+    .nav__logo__container {
+        justify-self: center;
+
+        .nav__logo {
+            justify-self: center;
+            margin-top: 10px;
+            max-width: 100px;
+        }
     }
+
 
     .alt__nav__container {
         align-self: center;

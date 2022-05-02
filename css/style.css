@@ -37,8 +37,8 @@ button {
 }
 
 header {
-  background: -webkit-gradient(linear, left top, right top, from(#B2C6BD), color-stop(30%, #B2C6BD), color-stop(70%, #F7F1F1), to(#F7F1F1));
-  background: linear-gradient(left, #B2C6BD 0%, #B2C6BD 30%, #F7F1F1 70%, #F7F1F1 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#B2C6BD), color-stop(50%, #B2C6BD), color-stop(75%, rgba(247, 241, 241, 0.8)), to(rgba(247, 241, 241, 0.5)));
+  background: linear-gradient(to right, #B2C6BD 0%, #B2C6BD 50%, rgba(247, 241, 241, 0.8) 75%, rgba(247, 241, 241, 0.5) 100%);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -53,9 +53,10 @@ header .nav__list__container {
 }
 
 header .nav__list {
+  display: none;
   position: absolute;
-  background: -webkit-gradient(linear, left top, right top, from(#B2C6BD), color-stop(30%, #B2C6BD), color-stop(70%, #F7F1F1), to(#F7F1F1));
-  background: linear-gradient(left, #B2C6BD 0%, #B2C6BD 30%, #F7F1F1 70%, #F7F1F1 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#B2C6BD), color-stop(50%, #B2C6BD), color-stop(75%, rgba(247, 241, 241, 0.8)), to(rgba(247, 241, 241, 0.5)));
+  background: linear-gradient(to right, #B2C6BD 0%, #B2C6BD 50%, rgba(247, 241, 241, 0.8) 75%, rgba(247, 241, 241, 0.5) 100%);
   top: 76px;
   left: 0px;
   height: 100%;
@@ -68,7 +69,14 @@ header .nav__list li {
   font-size: 1.3rem;
 }
 
-header .nav__logo {
+header .nav__logo__container {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+header .nav__logo__container .nav__logo {
+  -ms-grid-column-align: center;
+      justify-self: center;
   margin-top: 10px;
   max-width: 100px;
 }
@@ -96,5 +104,18 @@ header .alt__nav__container .basket__count {
   position: relative;
   left: 11px;
   bottom: 28px;
+}
+
+.herobanner__container {
+  width: 100%;
+}
+
+.herobanner__img {
+  background-image: url("../../logo/taisiia-shestopal-8IIZAnpRX30-unsplash.jpg");
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-position: top;
+  background-repeat: no-repeat;
 }
 /*# sourceMappingURL=style.css.map */
