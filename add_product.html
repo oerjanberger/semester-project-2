@@ -16,45 +16,21 @@
 
     <div class="wrapper">
         <header>
-            <div class="nav__list__container">
-                <i class="fas fa-bars"></i>
-                <ul class="nav__list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="basket.html">Basket
-                            <i class="fas fa-shopping-bag" aria-label="shopping basket"></i>
-                            <div class="basket__count"></div>
-                        </a></li>
-                    <li><a href="favorites.html">Favorites
-                            <i class="far fa-heart without__fill"></i>
-                            <i class="fas fa-heart with__fill"></i>
-                        </a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="add_product.html">Add Products</a></li>
-                    <li><a href="login.html">Login
-                            <i class="fas fa-user-alt"></i>
-                        </a></li>
-                    </a>
-                </ul>
-            </div>
-            <div class="nav__logo__container">
+            <div class="navbar__container">
+                <div class="nav__list__container">
+                    <label class="hamburger__label" for="hamburger__menu"><i class="fas fa-bars hamburger__label"
+                            aria-label="Navigation menu"></i></label>
+                    <input type="checkbox" id="hamburger__menu" class="hamburger__menu__input">
+                    <nav class="nav">
+                    </nav>
+                </div>
+                <div class="nav__logo__container">
+                    <a href="index.html"><img src="logo/Logo_svg.svg" alt="Baby Bliss logo" class="nav__logo"></a>
+                </div>
+                <div class="alt__nav__container">
 
-            </div>
-            <div class="alt__nav__container">
-                <div class="alt__nav__basket">
-                    <i class="fas fa-shopping-bag" aria-label="shopping basket"></i>
-                    <div class="basket__count"></div>
-                </div>
-                <div class="alt__nav__favorites">
-                    <i class="far fa-heart without__fill"></i>
-                    <i class="fas fa-heart with__fill"></i>
-                </div>
-                <div class="alt__nav__user">
-                    <p>Logout user</p>
-                    <i class="fas fa-user-alt"></i>
                 </div>
             </div>
-
         </header>
         <main>
             <section class="add__product__container">
@@ -91,35 +67,34 @@
         </main>
     </div>
     <footer>
-        <div class="footer__grid">
-            <div class="footer__logo__container">
-                <img src="logo/Logo_svg.svg" alt="Baby Bliss logo">
-            </div>
-            <div class="footer__social__container">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-twitter"></i>
-            </div>
-            <div class="footer__info__container">
-                <h4>Company & Customer Care</h4>
-                <a href="about.html">
-                    <p>About Us</p>
-                </a>
-                <a href="">
-                    <p>Contact Us</p>
-                </a>
-                <a href="">
-                    <p>Shipping & Delivery</p>
-                </a>
-                <a href="">
-                    <p>Terms & Conditions</p>
-                </a>
-                <a href="">
-                    <p>Returns & Exchanges</p>
-                </a>
-            </div>
+        <div class="footer__logo__container">
+            <a href="index.html"><img src="logo/Logo_svg.svg" alt="Baby Bliss logo" class="footer__logo"></a>
+        </div>
+        <div class="footer__social__container">
+            <i class="fab fa-instagram footer__social"></i>
+            <i class="fab fa-facebook footer__social"></i>
+            <i class="fab fa-twitter footer__social"></i>
+        </div>
+        <div class="footer__info__container">
+            <h4>Company & Customer Care</h4>
+            <a href="about.html">
+                <p>About Us</p>
+            </a>
+            <a href="">
+                <p>Contact Us</p>
+            </a>
+            <a href="">
+                <p>Shipping & Delivery</p>
+            </a>
+            <a href="">
+                <p>Terms & Conditions</p>
+            </a>
+            <a href="">
+                <p>Returns & Exchanges</p>
+            </a>
         </div>
     </footer>
+    <script src="js/productDetails.js" type="module"></script>
 </body>
 
 </html>

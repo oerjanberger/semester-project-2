@@ -1,0 +1,13 @@
+.standard__cta__btn {
+    width: 300px;
+    height: 40px;
+    background-color: getColour(textcolourprimary);
+    color: getColour(backgroundwhite);
+    border: none;
+    font-size: 1.2rem;
+}
+
+.edit__btn {
+    background-color: getColour(tertiarygreen);
+    color: getColour(textcoloursecondary);
+}

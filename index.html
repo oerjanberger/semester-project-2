@@ -16,71 +16,31 @@
 
     <div class="wrapper">
         <header>
-            <div class="nav__list__container">
-                <i class="fas fa-bars"></i>
-                <ul class="nav__list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="basket.html">Basket
-                            <i class="fas fa-shopping-bag" aria-label="shopping basket"></i>
-                            <div class="basket__count"></div>
-                        </a></li>
-                    <li><a href="favorites.html">Favorites
-                            <i class="fas fa-heart heart__with__fill"></i>
-                        </a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="add_product.html">Add Products</a></li>
-                    <li><a href="login.html">Login test
-                            <i class="fas fa-user-alt"></i>
-                        </a></li>
-                    </a>
-                </ul>
-            </div>
-            <div class="nav__logo__container">
-                <img src="logo/Logo_svg.svg" alt="Baby Bliss logo" class="nav__logo">
-            </div>
-            <div class="alt__nav__container">
-                <div class="alt__nav__basket">
-                    <a href="basket.html"><i class="fas fa-shopping-bag" aria-label="shopping basket"></i></a>
-                    <div class="basket__count">2</div>
+            <div class="navbar__container">
+                <div class="nav__list__container">
+                    <label class="hamburger__label" for="hamburger__menu"><i class="fas fa-bars hamburger__label"
+                            aria-label="Navigation menu"></i></label>
+                    <input type="checkbox" id="hamburger__menu" class="hamburger__menu__input">
+                    <nav class="nav">
+                    </nav>
                 </div>
-                <div class="alt__nav__favorites">
-                    <a href="favorites.html"><i class="fas fa-heart heart__with__fill"></i></a>
+                <div class="nav__logo__container">
+                    <a href="index.html"><img src="logo/Logo_svg.svg" alt="Baby Bliss logo" class="nav__logo"></a>
                 </div>
-                <div class="alt__nav__user">
-                    <!-- <p>Logout user</p> -->
-                    <a href="login.html"><i class="fas fa-user-alt"></i></a>
-                </div>
-            </div>
+                <div class="alt__nav__container">
 
+                </div>
+            </div>
         </header>
         <main>
             <div class="loading__home"></div>
             <div class="herobanner__container">
                 <div class="herobanner__img"></div>
             </div>
-            <section class="featured__container">
-                <h1>Home page</h1>
+            <section class="container">
                 <h2>Featured products</h2>
                 <div class="loading__products"></div>
-                <div class="featured__grid">
-                    <div class="product__card">
-                        <div class="favorite__icon__container">
-
-                        </div>
-                        <a href="">
-                            <div class="product__img__container">
-
-                            </div>
-                            <div class="product__title__container">
-
-                            </div>
-                        </a>
-                        <div class="button__container">
-                            <a href=""><button class="standard__cta__btn">View product</button></a>
-                            <a href=""><button class="edit__cta__btn">Edit product</button></a>
-                        </div>
-                    </div>
+                <div class="featured__container">
                 </div>
                 <div class="all__products__link__container">
 
@@ -90,7 +50,7 @@
     </div>
     <footer>
         <div class="footer__logo__container">
-            <img src="logo/Logo_svg.svg" alt="Baby Bliss logo" class="footer__logo">
+            <a href="index.html"><img src="logo/Logo_svg.svg" alt="Baby Bliss logo" class="footer__logo"></a>
         </div>
         <div class="footer__social__container">
             <i class="fab fa-instagram footer__social"></i>
@@ -116,6 +76,7 @@
             </a>
         </div>
     </footer>
+    <script src="js/index.js" type="module"></script>
 </body>
 
 </html>

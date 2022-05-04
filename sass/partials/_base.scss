@@ -1,7 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
 body {
     margin: 0 auto;
     background: getColour(backgroundwhite);
     font-family: $font-primary;
+    color: getColour(textcolourprimary);
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1 0 auto;
+}
+
+.container {
+    max-width: 1000px;
+    padding: 0 2.4rem;
+    margin: 0 auto;
 }
 
 a {
@@ -13,6 +35,10 @@ a {
 i {
     color: getColour(textcolourprimary);
     font-size: 1.3rem;
+}
+
+i :hover {
+    cursor: pointer;
 }
 
 h1,
@@ -27,7 +53,6 @@ button {
     font-family: $font-button;
 }
 
-.heart__with__fill,
-.heart__without__fill {
+.fa-heart {
     color: getColour(primaryred);
 }

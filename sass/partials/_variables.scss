@@ -15,10 +15,15 @@ $colours: (primaryred: #E28D8D,
     textcolourprimary: #423F38,
     textcoloursecondary: #262421);
 
-$mixColour: #B2C6BD 0%,
+$navColour: #B2C6BD 0%,
 #B2C6BD 50%,
 rgba(247, 241, 241, 0.8) 75%,
 rgba(247, 241, 241, 0.5) 100%;
+
+$navListColour: #B2C6BD 0%,
+#B2C6BD 20%,
+rgba(178, 198, 189, 0.8) 40%,
+rgba(178, 198, 189, 0.5) 100%;
 
 @function getColour($colour) {
     @return map-get($colours, $colour);

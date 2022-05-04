@@ -1,33 +1,81 @@
-header {
-    background: linear-gradient(to right, $mixColour);
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar__container {
+    background: linear-gradient(to right, $navColour);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    position: relative;
+    width: 100%;
 
-    .nav__list__container {
-        align-self: center;
-        margin-left: 20px;
+    .hamburger__menu__input {
+        display: none;
     }
 
-
-
-    .nav__list {
-        display: none;
+    .nav__list__container {
         position: absolute;
-        background: linear-gradient(to right, $mixColour);
-        top: 76px;
-        left: 0px;
-        height: 100%;
-        width: 50%;
-        padding-left: 20px;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        align-self: center;
 
-        li {
-            list-style: none;
-            font-size: 1.3rem;
+        .hamburger__label {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 35px 30px;
+            font-size: 1.6rem;
+        }
+
+        .hamburger__label :hover {
+            cursor: pointer;
+        }
+
+        .nav {
+            display: none;
+            position: relative;
+            background: linear-gradient(to right, $navListColour);
+            height: 100vh;
+            width: 30vh;
+            padding-top: 100px;
+
+            .nav__list {
+                padding: 10px 0;
+
+                li {
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px 20px;
+                    font-size: 1.3rem;
+
+                    .basket__icon__container {
+                        max-height: 23px;
+                    }
+
+                    .active {
+                        text-decoration: underline;
+
+                        .fa-heart {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
         }
     }
 
     .nav__logo__container {
         justify-self: center;
+        margin: 0 auto;
+        grid-column-start: 2;
+        grid-column-end: 3;
 
         .nav__logo {
             justify-self: center;
@@ -36,25 +84,35 @@ header {
         }
     }
 
-
-    .alt__nav__container {
-        align-self: center;
+    .alt__navigation {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
+        list-style: none;
+        padding-left: 0px;
+        margin-top: 35px;
+    }
 
-        .basket__count {
-            background-color: getColour(highlightorange);
-            font-size: 10px;
-            font-weight: bold;
-            color: getColour(backgroundwhite);
-            border-radius: 50%;
-            text-align: center;
-            padding: 1px 1px;
-            z-index: 10;
-            position: relative;
-            left: 11px;
-            bottom: 28px;
-        }
+    .basket__count,
+    .logout__user__x {
+        background-color: getColour(highlightorange);
+        font-size: 10px;
+        font-weight: bold;
+        color: getColour(backgroundwhite);
+        border-radius: 50%;
+        text-align: center;
+        padding: 1px 1px;
+        position: relative;
+        left: 11px;
+        bottom: 28px;
+        z-index: 20;
+        width: 17px;
+        height: 17px;
+        font-family: $font-primary;
+    }
 
+    .logout__user__x {
+        background-color: getColour(tertiarygreen);
+        color: getColour(textcolourprimary);
+        font-size: 0.7rem;
     }
 }
