@@ -1,0 +1,21 @@
+.filter__container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+
+    .filter {
+        margin-top: 10px;
+        max-width: 250px;
+    }
+}
+
+input {
+    border: 3px solid getColour(highlightorange);
+    height: 40px;
+    font-size: 0.9rem;
+
+    &:focus {
+        outline: none;
+        border: 3px solid getColour(secondaryturquoise);
+    }
+}

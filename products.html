@@ -35,20 +35,23 @@
         <main>
             <div class="loading__products"></div>
             <section class="container">
-                <h1>All products </h1>
-                <div class="filter__container">
-                    <label for="filter">Filter products</label>
-                    <input type="text" name="filter" id="filter" class="filter"
-                        placeholder="Search example: beanie, shoes...">
+                <div class="content__wrapper">
+                    <h1>All products </h1>
+                    <div class="filter__container">
+                        <label for="filter">Filter products</label>
+                        <input type="text" name="filter" id="filter" class="filter"
+                            placeholder="Search example: beanie, shoes...">
+                    </div>
+                    <div class="filter__message__container"></div>
+                    <div class="all__products__grid">
+                    </div>
+                    <div class="pagination__container">
+                        <i class="fas fa-chevron-left page__arrow" aria-label="Pervious page"></i>
+                        <div class="pages__container"></div>
+                        <i class="fas fa-chevron-right page__arrow" aria-label="Next page"></i>
+                    </div>
+                    <div class="pagination__message__container"></div>
                 </div>
-                <div class="all__products__grid">
-                </div>
-                <div class="pagination__container">
-                    <i class="fas fa-chevron-left page__arrow" aria-label="Pervious page"></i>
-                    <div class="pages__container"></div>
-                    <i class="fas fa-chevron-right page__arrow" aria-label="Next page"></i>
-                </div>
-                <div class="message__container"></div>
             </section>
         </main>
     </div>

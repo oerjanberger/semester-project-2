@@ -1,5 +1,6 @@
+import { BASKET_KEY, FAVORITES_KEY, USERNAME } from "../constants/keys.js";
+
 const tokenKey = "token";
-const userKey = "user";
 
 export function saveToken(token) {
     saveToStorage(tokenKey, token);
@@ -10,11 +11,11 @@ export function getToken() {
 }
 
 export function saveUser(user) {
-    saveToStorage(userKey, user);
+    saveToStorage(USERNAME, user);
 }
 
 export function getUsername() {
-    const user = getFromStorage(userKey);
+    const user = getFromStorage(USERNAME);
 
     if (user) {
         return user.username;
@@ -23,8 +24,26 @@ export function getUsername() {
     return null;
 }
 
-export function clearStorage() {
-    localStorage.clear();
+export function saveToFavorites(product) {
+    saveToStorage(FAVORITES_KEY, product);
+}
+
+export function getProductFromFavorites() {
+    const favorites = localStorage.getItem(FAVORITES_KEY);
+
+    if (!favorites) {
+        return [];
+    }
+    return JSON.parse(favorites);
+}
+
+export function clearFavorites() {
+    localStorage.removeItem(FAVORITES_KEY);
+}
+
+export function clearUserFromStorage() {
+    localStorage.removeItem(tokenKey);
+    localStorage.removeItem(USERNAME);
 }
 
 function saveToStorage(key, value) {

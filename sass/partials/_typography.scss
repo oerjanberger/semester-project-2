@@ -1,0 +1,18 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $font-heading;
+}
+
+button,
+.all__products__link__container {
+    font-family: $font-button;
+}
+
+body,
+input,
+a {
+    font-family: $font-primary;
+}

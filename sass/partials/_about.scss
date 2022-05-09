@@ -1,0 +1,27 @@
+.about__img {
+    max-width: 300px;
+}
+
+.about__social {
+    display: flex;
+    gap: 20px;
+    font-size: 1.3rem;
+
+    i {
+        align-self: center;
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        margin: 10px 0px;
+    }
+}
+
+.about__social:hover {
+
+    i,
+    h5 {
+        color: getColour(highlightorange);
+    }
+
+}

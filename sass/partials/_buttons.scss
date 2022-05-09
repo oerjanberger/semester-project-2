@@ -11,3 +11,33 @@
     background-color: getColour(tertiarygreen);
     color: getColour(textcoloursecondary);
 }
+
+.all__products__link__container {
+    justify-content: center;
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    font-size: 1.3rem;
+
+    .logo_btn {
+        max-width: 50px;
+    }
+}
+
+.all__products__link__container:hover {
+    cursor: pointer;
+
+    .logo_btn {
+        max-width: 60px;
+    }
+}
+
+.back_btn {
+    justify-content: left;
+    font-size: 1.1rem;
+
+    .back__arrow {
+        align-self: center;
+        font-size: 1.6rem;
+    }
+}

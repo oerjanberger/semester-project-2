@@ -1,26 +1,36 @@
 import MESSAGES from "../../constants/messages.js";
 import displayMessage from "../common/displayMessage.js";
+import { getProductFromFavorites } from "../../utils/storage.js";
+import addProductToFavorites from "../buttons/addProductToFavorites.js";
 
 export default function renderProducts(products) {
     if (products.length === 0) {
-        return displayMessage("warning", MESSAGES.noResult, "all__products__grid");
+        return displayMessage("warning", MESSAGES.noResult, ".all__products__grid");
     }
-
-    console.log(products)
-
     const allProductsContainer = document.querySelector(".all__products__grid");
-
     allProductsContainer.innerHTML = "";
 
     products.forEach(function (product) {
         const productImage = product.attributes.Image.data.attributes.url;
         const productImageAlt = product.attributes.Image_alt_text;
+        const productId = product.id;
         const productTitle = product.attributes.Title;
         const productPrice = product.attributes.Price;
+
+        let cssClass = "far";
+        const favorites = getProductFromFavorites();
+        const isFav = favorites.find((fav) => {
+            return parseInt(fav.id) === productId;
+        })
+
+        if (isFav) {
+            cssClass = "fas";
+        };
+
         allProductsContainer.innerHTML += `<div class="product__card">
-            <div class="favorite__icon__container"><i class="fas fa-heart favorite__button"></i></div>
+            <div class="favorite__icon__container"><i class="${cssClass} fa-heart favorite__button" data-id="${productId}" data-title="${productTitle}" data-image="${productImage}" data-alt="${productImageAlt}" data-price="${productPrice}"></i></div>
             <a href="">
-                <div class="product__img__container"><img src="${productImage}" alt"${productImageAlt}" class="product__image"></div>
+                <div class="product__img__container"><img src="${productImage}" alt="${productImageAlt}" class="product__image"></div>
                 <div class="product__card__info">
                     <h3>${productTitle}</h3>
                     <p class="product__card__price">NOK ${productPrice},-</p>
@@ -32,4 +42,5 @@ export default function renderProducts(products) {
             </div>
         </div>`;
     });
+    addProductToFavorites();
 };

@@ -1,6 +1,8 @@
-import { baseUrl } from "./constants/api.js";
+import { baseUrl } from "./data/api.js";
 import createNav from "./components/common/createNav.js";
-import renderFeatured from "./components/products/renderFeatured.js";
+import renderFeatured from "./components/renderHtml/renderFeatured.js";
+import displayMessage from "./components/common/displayMessage.js";
+import MESSAGES from "./constants/messages.js";
 
 const url = baseUrl + "products?populate=*";
 createNav();
@@ -11,11 +13,10 @@ createNav();
         const result = await response.json();
 
         const products = result.data
-        console.log(products)
-
         renderFeatured(products)
     }
     catch (error) {
         console.log(error)
+        displayMessage("error", MESSAGES.error, ".index__message__container")
     }
 })();

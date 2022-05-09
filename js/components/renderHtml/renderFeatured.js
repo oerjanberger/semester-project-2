@@ -19,7 +19,7 @@ export default function renderFeatured(products) {
             featuredContainer.innerHTML += `<div class="product__card">
             <div class="favorite__icon__container"><i class="fas fa-heart favorite__button"></i></div>
             <a href="">
-                <div class="product__img__container"><img src="${productImage}" alt"${productImageAlt}" class="product__image"></div>
+                <div class="product__img__container"><img src="${productImage}" alt="${productImageAlt}" class="product__image"></div>
                 <div class="product__card__info">
                     <h3>${productTitle}</h3>
                     <p class="product__card__price">NOK ${productPrice},-</p>

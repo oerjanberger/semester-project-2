@@ -1,4 +1,6 @@
-.featured__container {
+.all__products__grid,
+.featured__container,
+.favorite__grid {
     display: grid;
     grid-template-columns: auto;
     gap: 30px;
