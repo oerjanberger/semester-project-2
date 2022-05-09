@@ -2,7 +2,8 @@ import createNav from "./components/common/createNav.js";
 import { baseUrl } from "./data/api.js";
 import displayMessage from "./components/common/displayMessage.js";
 import MESSAGES from "./constants/messages.js";
-import renderProductDetails from "./components/renderHtml/renderProductDetails.js"
+import renderProductDetails from "./components/renderHtml/renderProductDetails.js";
+
 
 createNav();
 
@@ -24,4 +25,4 @@ const productSpecificUrl = baseUrl + "products/" + id + "?populate=*";
 
     }
 })();
-renderProductDetails()
+

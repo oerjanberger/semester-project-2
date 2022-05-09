@@ -37,8 +37,17 @@ export function getProductFromFavorites() {
     return JSON.parse(favorites);
 }
 
-export function clearFavorites() {
-    localStorage.removeItem(FAVORITES_KEY);
+export function saveToBasket(product) {
+    saveToStorage(BASKET_KEY, product);
+}
+
+export function getProductFromBasket() {
+    const myBasket = localStorage.getItem(BASKET_KEY);
+
+    if (!myBasket) {
+        return [];
+    }
+    return JSON.parse(myBasket);
 }
 
 export function clearUserFromStorage() {

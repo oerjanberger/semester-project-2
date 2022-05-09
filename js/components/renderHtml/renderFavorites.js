@@ -11,7 +11,7 @@ export default function renderFavorites() {
     favoritesContainer.innerHTML = "";
     favoriteMessage.innerHTML = "";
     if (favorites.length === 0) {
-        displayMessage("warning", MESSAGES.noResult, ".favorite__message__container");
+        displayMessage("warning", MESSAGES.noFavorites, ".favorite__message__container");
     }
 
     favorites.forEach((product) => {
