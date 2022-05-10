@@ -2,6 +2,7 @@ import { getUsername } from "../../utils/storage.js";
 import stickyNav from "./stickyNav.js";
 import navHeart from "./navHeart.js";
 import basketQuantityCounter from "./basketQuantityCounter.js";
+import logout from "../buttons/logout.js";
 
 export default function createNav() {
     stickyNav();
@@ -21,9 +22,9 @@ export default function createNav() {
 
     if (username) {
         authLink = `<li><a href="add_product.html" class="${pathname === "/add_product.html" ? "active" : ""}">Add Product</a></li>
-        <li><a href="" class="">Logout user</a><a href=""><i class="fas fa-user-alt"></i></a></li>`;
-        secondAuthlink = `<li class="alt__nav__user">
-        <a href="login.html"><i class="fas fa-user-alt"></i></a><div class="logout__user__x">X</div>
+        <li class="logout__btn"><a href="">Logout</a><a href=""><i class="fas fa-user-alt"></i></a></li>`;
+        secondAuthlink = `<li class="alt__nav__user logout__btn">
+        <a href=""><i class="fas fa-user-alt"></i><div class="logout__user__x">X</div></a>
     </li>`;
     }
 
@@ -59,6 +60,7 @@ export default function createNav() {
             navContainer.style.display = "none"
         }
     };
+    logout()
     basketQuantityCounter();
 }
 

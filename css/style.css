@@ -70,6 +70,7 @@ button,
 
 body,
 input,
+textarea,
 a {
   font-family: open-sans, sans-serif;
 }
@@ -444,13 +445,15 @@ button:hover {
   max-width: 250px;
 }
 
-input {
+input,
+textarea {
   border: 3px solid #D4A591;
   height: 40px;
   font-size: 0.9rem;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border: 3px solid #B2C6BD;
 }
@@ -643,7 +646,8 @@ hr {
   gap: 15px;
 }
 
-.login__form {
+.login__form,
+.add__product__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -653,7 +657,7 @@ hr {
           flex-direction: column;
 }
 
-.login__form .input__container {
+.input__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -662,5 +666,37 @@ hr {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 20px;
+}
+
+.input__container label {
+  margin-bottom: 5px;
+}
+
+.input__container textarea {
+  height: 100px;
+}
+
+.input__container .helper__text {
+  font-size: 0.7rem;
+  margin-top: 2px;
+}
+
+.featured__icon__contaienr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 40px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 30px 0px;
+}
+
+.featured__icon__contaienr .featured__checkbox {
+  display: none;
+}
+
+.featured__icon__contaienr .featured__icon {
+  font-size: 2.4rem;
 }
 /*# sourceMappingURL=style.css.map */
