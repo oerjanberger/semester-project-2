@@ -3,7 +3,7 @@ import { getToken } from "../../utils/storage.js";
 import displayMessage from "../common/displayMessage.js";
 import MESSAGES from "../../constants/messages.js";
 
-export default async function addProductForm(title, description, price, image, alt, featured) {
+export default async function addNewProduct(title, description, price, image, alt, featured) {
     const url = baseUrl + "products";
     const data = JSON.stringify({ title: title, description: description, price: price, image: image, alt: alt, featured: featured })
     const token = getToken();
@@ -29,7 +29,6 @@ export default async function addProductForm(title, description, price, image, a
         if (json.error) {
             console.log(json.message)
             displayMessage("error", MESSAGES.error, ".message__container")
-
         }
     } catch (error) {
         console.log(error);

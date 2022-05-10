@@ -1,6 +1,6 @@
 import MESSAGES from "../../constants/messages.js";
 import displayMessage from "../common/displayMessage.js";
-import addProductForm from "./addProductForm.js";
+import addNewProduct from "./addNewProduct.js";
 
 export default function validateAddProductForm(event) {
     event.preventDefault();
@@ -25,19 +25,38 @@ export default function validateAddProductForm(event) {
     const titleValue = title.value.trim();
     const descriptionValue = description.value.trim();
     const priceValue = price.value.trim();
-    const imageFile = image.value;
-    const imageAltValue = imageAlt.value;
-    const featuredValue = featuredInput.value;
+    const imageFile = image.files[0];
+    const imageAltValue = imageAlt.value.trim();
+    const featuredValue = featuredInput.checked;
+
+    var validForm = true;
 
     if (titleValue.length < 5) {
         displayMessage("warning", MESSAGES.titleError, ".title__error");
-    } else if (descriptionValue.length < 20) {
+        validForm = true;
+    } else {
+        validForm = false;
+    }
+    if (descriptionValue.length < 20) {
         displayMessage("warning", MESSAGES.descriptionError, ".description__error");
-    } else if (!imageFile) {
+        validForm = true;
+    } else {
+        validForm = false;
+    }
+    if (image.files.length === 0 || imageFile.size > 200000000 || imageFile.type !== "image/jpeg" && imageFile.type !== "image/jpg" && imageFile.type !== "image/png") {
         displayMessage("warning", MESSAGES.imageError, ".image__error");
-    } else if (imageAltValue < 5) {
+        validForm = true;
+    } else {
+        validForm = false;
+    }
+    if (imageAltValue < 5) {
         displayMessage("warning", MESSAGES.imageAltError, ".image__alt__error");
+        validForm = true;
+    } else {
+        validForm = false;
+    }
+    if (validForm) {
+        addNewProduct(titleValue, descriptionValue, priceValue, imageFile, imageAltValue, featuredValue)
     }
 
-    addProductForm(titleValue, descriptionValue, priceValue, imageFile, imageAltValue, featuredValue)
 }
