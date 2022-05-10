@@ -1,13 +1,12 @@
-import { BASKET_KEY, FAVORITES_KEY, USERNAME } from "../constants/keys.js";
-
-const tokenKey = "token";
+import renderBasket from "../components/renderHtml/renderBasket.js";
+import { BASKET_KEY, FAVORITES_KEY, USERNAME, TOKEN_KEY } from "../constants/keys.js";
 
 export function saveToken(token) {
-    saveToStorage(tokenKey, token);
+    saveToStorage(TOKEN_KEY, token);
 }
 
 export function getToken() {
-    return getFromStorage(tokenKey);
+    return getFromStorage(TOKEN_KEY);
 }
 
 export function saveUser(user) {
@@ -50,8 +49,13 @@ export function getProductFromBasket() {
     return JSON.parse(myBasket);
 }
 
+export function clearBasketFromStorage() {
+    localStorage.removeItem(BASKET_KEY);
+    renderBasket();
+}
+
 export function clearUserFromStorage() {
-    localStorage.removeItem(tokenKey);
+    localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USERNAME);
 }
 
@@ -63,7 +67,7 @@ function getFromStorage(key) {
     const value = localStorage.getItem(key);
 
     if (!value) {
-        return [];
+        return null;
     }
 
     return JSON.parse(value);

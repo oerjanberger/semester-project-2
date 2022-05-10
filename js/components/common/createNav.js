@@ -1,6 +1,7 @@
 import { getUsername } from "../../utils/storage.js";
 import stickyNav from "./stickyNav.js";
 import navHeart from "./navHeart.js";
+import basketQuantityCounter from "./basketQuantityCounter.js";
 
 export default function createNav() {
     stickyNav();
@@ -30,8 +31,8 @@ export default function createNav() {
                                 <li><a href="/" class="${pathname === "/" || pathname === "/index.html" ? "active" : ""}">Home</a></li>
                                 <li><a href="products.html" class="${pathname === "/products.html" ? "active" : ""}">Products</a></li>
                                 <li><a href="basket.html" class="${pathname === "/basket.html" ? "active" : ""}">Basket </a>
-                                <a href="basket.html"><div class="basket__icon__container"><i class="far fa-shopping-bag" aria-label="shopping basket"></i>
-                                <div class="basket__count">2</div></div></a></li>
+                                <a href="basket.html"><div class="basket__icon__container"><i class="fas fa-shopping-bag" aria-label="shopping basket"></i>
+                                <div class="basket__count"></div></div></a></li>
                                 <li><a href="favorites.html" class="${pathname === "/favorites.html" ? "active" : ""}">Favorites</a>
                                 <a href="favorites.html"><i class="far fa-heart nav__heart"></i></a></li>
                                 <li><a href="about.html" class="${pathname === "/about.html" ? "active" : ""}">About us</a></li>
@@ -41,7 +42,7 @@ export default function createNav() {
     altNavContainer.innerHTML = `<ul class="alt__navigation">
                                         <li class="alt__nav__basket">
                                             <a href="basket.html"><i class="fas fa-shopping-bag" aria-label="shopping basket"></i></a>
-                                            <div class="basket__count">2</div>
+                                            <div class="basket__count"></div>
                                         </li>
                                         <li class="alt__nav__favorites">
                                             <a href="favorites.html"><i class="far fa-heart nav__heart"></i></a>
@@ -49,8 +50,8 @@ export default function createNav() {
                                         ${secondAuthlink}
                                     </ul>`;
     navHeart();
-    hamburgerMenu.addEventListener("click", toggleNav);
 
+    hamburgerMenu.addEventListener("click", toggleNav);
     function toggleNav() {
         if (!menuCheckbox.checked) {
             navContainer.style.display = "block"
@@ -58,6 +59,6 @@ export default function createNav() {
             navContainer.style.display = "none"
         }
     };
-
+    basketQuantityCounter();
 }
 

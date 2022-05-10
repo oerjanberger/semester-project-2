@@ -33,17 +33,25 @@
             </div>
         </header>
         <main>
-            <section class="login__container">
-                <h1>Login </h1>
-                <form class="login__form">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" class="username">
-                    <div class="username__error"></div>
-                    <label for="password">Password</label>
-                    <input type="text" name="password" id="password" class="password">
-                    <div class="password__error"></div>
-                </form>
-                <button class="standard__cta__btn">Login</button>
+            <section class="container">
+                <div class="content__wrapper">
+                    <h1>Login </h1>
+                    <div class="message__container"></div>
+                    <form class="login__form">
+                        <div class="input__container">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" class="username">
+                        </div>
+                        <div class="username__error"></div>
+                        <div class="input__container">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="password">
+                        </div>
+                        <div class="password__error"></div>
+                        <button class="standard__cta__btn">Login</button>
+                    </form>
+
+                </div>
             </section>
         </main>
     </div>

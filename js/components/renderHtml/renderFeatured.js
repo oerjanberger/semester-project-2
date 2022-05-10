@@ -1,9 +1,10 @@
 import MESSAGES from "../../constants/messages.js";
 import displayMessage from "../common/displayMessage.js";
+import { getToken } from "../../utils/storage.js";
 
 export default function renderFeatured(products) {
     if (products.length === 0) {
-        return displayMessage("warning", MESSAGES.noResult, "featured__container");
+        return displayMessage("warning", MESSAGES.noResult, ".featured__message__container");
     }
 
     const featuredContainer = document.querySelector(".featured__container");
@@ -12,6 +13,14 @@ export default function renderFeatured(products) {
 
     products.forEach(function (product) {
         if (product.attributes.Featured) {
+            const token = getToken();
+
+            if (token) {
+                var productButtons = `<a href="product_details.html?id=${product.id}"><button class="standard__cta__btn">View product</button></a>
+                                    <a href="edit.html?id=${product.id}"><button class="standard__cta__btn edit__btn">Edit product</button></a>`
+            } else if (!token) {
+                var productButtons = `<a href="product_details.html?id=${product.id}"><button class="standard__cta__btn">View product</button></a>`
+            }
             const productImage = product.attributes.Image.data.attributes.url;
             const productImageAlt = product.attributes.Image_alt_text;
             const productTitle = product.attributes.Title;
@@ -26,8 +35,7 @@ export default function renderFeatured(products) {
                 </div>
             </a>
             <div class="button__container">
-                <a href="product_details.html?id=${product.id}"><button class="standard__cta__btn">View product</button></a>
-                <a href="edit.html?id=${product.id}"><button class="standard__cta__btn edit__btn">Edit product</button></a>
+                ${productButtons}
             </div>
         </div>`;
         };

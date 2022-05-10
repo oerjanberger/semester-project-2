@@ -1,11 +1,11 @@
 import MESSAGES from "../../constants/messages.js";
 import displayMessage from "../common/displayMessage.js";
-import { getProductFromFavorites } from "../../utils/storage.js";
+import { getProductFromFavorites, getToken } from "../../utils/storage.js";
 import addProductToFavorites from "../buttons/addProductToFavorites.js";
 
 export default function renderProducts(products) {
     if (products.length === 0) {
-        return displayMessage("warning", MESSAGES.noResult, ".all__products__grid");
+        return displayMessage("warning", MESSAGES.noResult, ".message__container");
     }
     const allProductsContainer = document.querySelector(".all__products__grid");
     allProductsContainer.innerHTML = "";
@@ -16,6 +16,14 @@ export default function renderProducts(products) {
         const productId = product.id;
         const productTitle = product.attributes.Title;
         const productPrice = product.attributes.Price;
+        const token = getToken();
+
+        if (token) {
+            var productButtons = `<a href="product_details.html?id=${product.id}"><button class="standard__cta__btn">View product</button></a>
+                                <a href="edit.html?id=${product.id}"><button class="standard__cta__btn edit__btn">Edit product</button></a>`
+        } else if (!token) {
+            var productButtons = `<a href="product_details.html?id=${product.id}"><button class="standard__cta__btn">View product</button></a>`
+        }
 
         let cssClass = "far";
         const favorites = getProductFromFavorites();
@@ -37,10 +45,12 @@ export default function renderProducts(products) {
                 </div>
             </a>
             <div class="button__container">
-                <a href="product_details.html?id=${product.id}"><button class="standard__cta__btn">View product</button></a>
-                <a href="edit.html?id=${product.id}"><button class="standard__cta__btn edit__btn">Edit product</button></a>
+                ${productButtons}
             </div>
         </div>`;
+
+
+
     });
     addProductToFavorites();
 };

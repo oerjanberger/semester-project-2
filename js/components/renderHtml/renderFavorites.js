@@ -6,12 +6,12 @@ import removeProductFromFavorites from "../buttons/removeProductFromFavorites.js
 export default function renderFavorites() {
     const favorites = getProductFromFavorites();
     const favoritesContainer = document.querySelector(".favorite__grid");
-    const favoriteMessage = document.querySelector(".favorite__message__container");
+    const favoriteMessage = document.querySelector(".message__container");
 
     favoritesContainer.innerHTML = "";
     favoriteMessage.innerHTML = "";
     if (favorites.length === 0) {
-        displayMessage("warning", MESSAGES.noFavorites, ".favorite__message__container");
+        displayMessage("warning", MESSAGES.noFavorites, ".message__container");
     }
 
     favorites.forEach((product) => {

@@ -78,7 +78,7 @@ hr {
     border: 1px solid getColour(highlightorange);
 }
 
-.total__price__container {
+.sum__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,4 +86,9 @@ hr {
     p {
         font-size: 0.9rem;
     }
+}
+
+.basket__btn__container {
+    display: grid;
+    gap: 15px;
 }

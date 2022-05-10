@@ -76,11 +76,13 @@
         margin: 0 auto;
         grid-column-start: 2;
         grid-column-end: 3;
+        z-index: 200;
 
         .nav__logo {
             justify-self: center;
             margin-top: 10px;
             max-width: 100px;
+
         }
     }
 

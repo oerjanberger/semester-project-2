@@ -7,7 +7,7 @@ import MESSAGES from "./constants/messages.js";
 const url = baseUrl + "products?populate=*";
 createNav();
 
-(async function getAllProducts() {
+(async function getIndexContent() {
     try {
         const response = await fetch(url);
         const result = await response.json();
@@ -17,6 +17,6 @@ createNav();
     }
     catch (error) {
         console.log(error)
-        displayMessage("error", MESSAGES.error, ".index__message__container")
+        displayMessage("error", MESSAGES.error, ".message__container")
     }
 })();

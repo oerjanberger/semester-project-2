@@ -11,21 +11,24 @@ export default function addProductToBasket() {
         const image = this.dataset.image;
         const alt = this.dataset.alt;
         const price = this.dataset.price;
+        let productCount = 1;
 
         const currentProductsInBasket = getProductFromBasket();
 
-        const productExists = currentProductsInBasket.find((basket) => {
-            return basket.id === id;
-        })
+        const productExists = currentProductsInBasket.find((product) => {
+            return product.id === id;
+        });
 
         if (!productExists) {
-            const thisProduct = { id: id, title: title, image: image, alt: alt, price: price };
+            const thisProduct = { id: id, title: title, image: image, alt: alt, price: price, quantity: productCount };
             currentProductsInBasket.push(thisProduct);
             saveToBasket(currentProductsInBasket);
         } else {
-            const newProductInBasket = currentProductsInBasket.filter((basket) => basket.id !== id);
-            saveToBasket(newProductInBasket);
+            const specificProduct = currentProductsInBasket.find((product) => {
+                return product.id === id;
+            });
+            specificProduct.quantity++;
+            saveToBasket(currentProductsInBasket);
         };
     }
-
 }

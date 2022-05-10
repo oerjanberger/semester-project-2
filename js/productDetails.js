@@ -21,7 +21,7 @@ const productSpecificUrl = baseUrl + "products/" + id + "?populate=*";
 
     } catch (error) {
         console.log(error)
-        displayMessage("error", MESSAGES.error, ".product__detail__message__container")
+        displayMessage("error", MESSAGES.error, ".message__container")
 
     }
 })();

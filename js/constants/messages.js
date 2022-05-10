@@ -5,6 +5,9 @@ const MESSAGES = {
     noFavorites: "No products added to favorites yet.",
     nobasket: "No products added to the basket yet.",
     noMoreProducts: "Unfortunately we have no more products",
+    noUsername: "Username is missing",
+    noPassword: "Password is missing",
+    wrongLogin: "Username or Password is incorrect",
     error: "There was an error when trying to show the products to you.",
 };
 export default MESSAGES;
