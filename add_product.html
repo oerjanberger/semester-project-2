@@ -41,42 +41,42 @@
                     </a>
                     <h1>Add product </h1>
                     <div class="message__container"></div>
-                    <form class="add__product__form">
+                    <form class="add__product__form" id="createProduct">
                         <div class="input__container">
                             <label for="title">Product title</label>
-                            <input type="text" name="title" id="title" class="title">
+                            <input type="text" name="Title" id="title" class="title">
                             <p class="helper__text">Minimum 5 characters</p>
                         </div>
                         <div class="title__error"></div>
                         <div class="input__container">
                             <label for="description">Description</label>
-                            <textarea name="description" id="description" class="description"></textarea>
+                            <textarea name="Description" id="description" class="description"></textarea>
                             <p class="helper__text">Minimum 20 characters</p>
                         </div>
                         <div class="description__error"></div>
                         <div class="input__container">
                             <label for="price">Price</label>
-                            <input type="text" name="price" id="price" class="price">
+                            <input type="text" name="Price" id="price" class="price">
                             <p class="helper__text">Only numbers and must have 2 decimals ex: 99.89</p>
                         </div>
                         <div class="price__error"></div>
                         <div class="input__container">
                             <label for="image">Upload image</label>
-                            <input type="file" name="image" id="image" class="image">
+                            <input type="file" name="files.Image" id="image" class="image">
                             <p class="helper__text">Must be a JPG, JPEG or PNG image. Max 200mb</p>
                         </div>
                         <div class="image__error"></div>
                         <div class="input__container">
                             <label for="image__alt">Image alternative text</label>
-                            <input type="text" name="image__alt" id="image__alt" class="image__alt">
+                            <input type="text" name="Image_alt_text" id="image__alt" class="image__alt">
                             <p class="helper__text">Explain the image for those who can't see it!</p>
                         </div>
                         <div class="image__alt__error"></div>
                         <label>Featured</label>
-                        <div class="featured__icon__contaienr">
+                        <div class="featured__icon__container">
                             <i class="fas fa-check-circle featured__yes featured__icon"></i>
                             <i class="fas fa-times-circle featured__no featured__icon"></i>
-                            <input type="radio" name="featured" id="featured" class="featured__checkbox">
+                            <input type="checkbox" name="Featured" id="featured" class="featured__checkbox">
                         </div>
                         <button class="standard__cta__btn">Add product</button>
                     </form>

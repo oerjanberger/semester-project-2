@@ -10,7 +10,7 @@ const MESSAGES = {
     wrongLogin: "Username or Password is incorrect",
     titleError: "Title not enough characters",
     descriptionError: "Description not enough characters",
-    PriceError: "Price is missing or not correct format",
+    priceError: "Price is missing or not correct format",
     imageError: "Image is missing or not correct format",
     imageAltError: "Image alternative text is missing",
     productCreated: "The product was successfully added",

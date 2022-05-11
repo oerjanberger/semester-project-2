@@ -15,8 +15,6 @@ export default function submitLogin(event) {
 
     const usernameValue = username.value.trim();
     const passwordValue = password.value.trim();
-    console.log(usernameValue)
-    console.log(passwordValue)
 
     let formIsValid = true;
 

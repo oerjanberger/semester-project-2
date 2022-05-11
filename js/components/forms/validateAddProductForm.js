@@ -1,6 +1,7 @@
 import MESSAGES from "../../constants/messages.js";
 import displayMessage from "../common/displayMessage.js";
 import addNewProduct from "./addNewProduct.js";
+import { checkPrice, checkLength } from "./validationFunctions.js"
 
 export default function validateAddProductForm(event) {
     event.preventDefault();
@@ -31,30 +32,30 @@ export default function validateAddProductForm(event) {
 
     var validForm = true;
 
-    if (titleValue.length < 5) {
+    if (checkLength(titleValue, 4)) {
+    } else {
         displayMessage("warning", MESSAGES.titleError, ".title__error");
-        validForm = true;
-    } else {
         validForm = false;
-    }
-    if (descriptionValue.length < 20) {
+    };
+    if (checkLength(descriptionValue, 19)) {
+    } else {
         displayMessage("warning", MESSAGES.descriptionError, ".description__error");
-        validForm = true;
-    } else {
         validForm = false;
-    }
+    };
+    if (checkPrice(priceValue)) {
+    } else {
+        displayMessage("warning", MESSAGES.priceError, ".price__error");
+        validForm = false;
+    };
     if (image.files.length === 0 || imageFile.size > 200000000 || imageFile.type !== "image/jpeg" && imageFile.type !== "image/jpg" && imageFile.type !== "image/png") {
         displayMessage("warning", MESSAGES.imageError, ".image__error");
-        validForm = true;
-    } else {
         validForm = false;
     }
-    if (imageAltValue < 5) {
+    if (checkLength(imageAltValue, 1)) {
+    } else {
         displayMessage("warning", MESSAGES.imageAltError, ".image__alt__error");
-        validForm = true;
-    } else {
         validForm = false;
-    }
+    };
     if (validForm) {
         addNewProduct(titleValue, descriptionValue, priceValue, imageFile, imageAltValue, featuredValue)
     }
