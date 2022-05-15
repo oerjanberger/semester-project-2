@@ -1,6 +1,7 @@
 import displayMessage from "../common/displayMessage.js";
 import MESSAGES from "../../constants/messages.js";
 import sendLoginData from "./sendLoginData.js";
+import { checkLength, checkEmail, checkPassword } from "./validationFunctions.js";
 
 export default function submitLogin(event) {
     event.preventDefault();
@@ -18,12 +19,12 @@ export default function submitLogin(event) {
 
     let formIsValid = true;
 
-    if (usernameValue.length === 0) {
+    if (checkLength(usernameValue, 1) || !checkEmail(usernameValue)) {
         formIsValid = false
         displayMessage("warning", MESSAGES.noUsername, ".username__error");
     };
 
-    if (passwordValue.length === 0) {
+    if (checkLength(passwordValue, 1) || !checkPassword(passwordValue)) {
         formIsValid = false
         displayMessage("warning", MESSAGES.noPassword, ".password__error");
     };

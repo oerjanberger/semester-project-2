@@ -12,20 +12,26 @@ export default function createNav() {
     const hamburgerMenu = document.querySelector(".hamburger__label");
     const menuCheckbox = document.querySelector(".hamburger__menu__input");
     const altNavContainer = document.querySelector(".alt__nav__container");
+    const navLogo = document.querySelector(".nav__logo");
+    const getStyleAltNav = window.getComputedStyle(navLogo).getPropertyValue("max-width");
     const username = getUsername();
 
     let authLink = `<li><a href="login.html" class="${pathname === "/login.html" ? "active" : ""}">
-                    Login</a><a href="login.html"><i class="fas fa-user-alt"></i></a></li>`;
+                    Login</a><a href="login.html"><i class="fas fa-user-alt" aria-label="login"></i></a></li>`;
     let secondAuthlink = `<li class="alt__nav__user">
-    <a href="login.html"><i class="fas fa-user-alt"></i></a>
+    <a href="login.html"><i class="fas fa-user-alt" aria-label="login"></i></a>
 </li>`;
 
     if (username) {
-        authLink = `<li><a href="add_product.html" class="${pathname === "/add_product.html" ? "active" : ""}">Add Product</a></li>
+        authLink = `<li><a href="add_product.html" class="${pathname === "/add_product.html" ? "active" : ""}">Add Product</a><a href="add_product.html"><i class="fas fa-plus"></i></a></li>
         <li class="logout__btn"><a href="">Logout</a><a href=""><i class="fas fa-user-alt"></i></a></li>`;
-        secondAuthlink = `<li class="alt__nav__user logout__btn">
-        <a href=""><i class="fas fa-user-alt"></i><div class="logout__user__x">X</div></a>
-    </li>`;
+        if (getStyleAltNav === "110px") {
+            secondAuthlink = `<li><a href="add_product.html"><i class="fas fa-plus" aria-label="add product"></i></a></li>
+            <li class="alt__nav__user logout__btn"><a href=""><i class="fas fa-user-alt" aria-label="logout user"></i><div class="logout__user__x">X</div></a></li>`;
+        } else {
+            secondAuthlink = `<li class="alt__nav__user logout__btn"><a href=""><i class="fas fa-user-alt" aria-label="log out user"></i><div class="logout__user__x">X</div></a></li>`;
+        }
+
     }
 
     navContainer.innerHTML = `<ul class="nav__list">
@@ -35,7 +41,7 @@ export default function createNav() {
                                 <a href="basket.html"><div class="basket__icon__container"><i class="fas fa-shopping-bag" aria-label="shopping basket"></i>
                                 <div class="basket__count"></div></div></a></li>
                                 <li><a href="favorites.html" class="${pathname === "/favorites.html" ? "active" : ""}">Favorites</a>
-                                <a href="favorites.html"><i class="far fa-heart nav__heart"></i></a></li>
+                                <a href="favorites.html"><i class="far fa-heart nav__heart" aria-label="my favorites"></i></a></li>
                                 <li><a href="about.html" class="${pathname === "/about.html" ? "active" : ""}">About us</a></li>
                                 ${authLink}
                         </ul>`;
@@ -46,7 +52,7 @@ export default function createNav() {
                                             <div class="basket__count"></div>
                                         </li>
                                         <li class="alt__nav__favorites">
-                                            <a href="favorites.html"><i class="far fa-heart nav__heart"></i></a>
+                                            <a href="favorites.html"><i class="far fa-heart nav__heart" aria-label="my favorites"></i></a>
                                         </li>
                                         ${secondAuthlink}
                                     </ul>`;

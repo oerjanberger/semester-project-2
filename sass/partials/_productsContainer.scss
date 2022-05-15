@@ -7,3 +7,12 @@
     width: 100%;
     justify-content: center;
 }
+
+@media(min-width: 1000px) {
+
+    .all__products__grid,
+    .featured__container,
+    .favorite__grid {
+        grid-template-columns: repeat(3, auto);
+    }
+}

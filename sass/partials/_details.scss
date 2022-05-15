@@ -22,3 +22,47 @@
     object-position: center;
     object-fit: cover;
 }
+
+.add__to__basket {
+    width: 100%;
+}
+
+@media(min-width: 720px) {
+    .product__detail__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+
+        .details__img__fav__container {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        .product__detail__info {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            display: grid;
+            grid-template-rows: auto auto 1fr;
+
+            h2 {
+                font-size: 1.6rem;
+                margin-top: 0;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            .product__detail__price {
+                place-self: end;
+                font-size: 1.4rem;
+            }
+        }
+
+        .add__to__basket {
+            height: 50px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
+}

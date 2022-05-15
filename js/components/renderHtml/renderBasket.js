@@ -18,7 +18,7 @@ export default function renderBasket() {
 
     if (basket.length === 0) {
         displayMessage("warning", MESSAGES.nobasket, ".message__container");
-        totalSum.innerHTML = "NOK 0,00,-"
+        totalSum.innerHTML = "NOK 0.00,-"
     }
 
     basket.forEach(function (product) {
@@ -28,17 +28,17 @@ export default function renderBasket() {
 
         basketContainer.innerHTML += `<div class="basket__card">
                                         <div class="basket__img__container">
-                                            <img src="${product.image}" alt="${product.alt}" class="basket__img">
+                                            <a href=""href="product_details.html?id=${product.id}"><img src="${product.image}" alt="${product.alt}" class="basket__img"></a>
                                         </div>
                                         <div class="basket__info__container">
-                                            <h5>${product.title}</h5>
-                                            <i class="fas fa-trash product__trash" data-id="${product.id}"></i>
+                                        <a href=""href="product_details.html?id=${product.id}"><h5>${product.title}</h5></a>
+                                            <i class="fas fa-trash product__trash" data-id="${product.id}" aria-label="remove ${product.title} from basket"></i>
                                             <div class="counter__container">
-                                                <i class="fas fa-minus counter__icon" data-id="${product.id}"></i>
+                                                <i class="fas fa-minus counter__icon" data-id="${product.id}" aria-label="reduce number of ${product.title} from basket by 1"></i>
                                                 <div class="count__container">${product.quantity} item(s)</div>
-                                                <i class="fas fa-plus counter__icon" data-id="${product.id}"></i>
+                                                <i class="fas fa-plus counter__icon" data-id="${product.id}" aria-label="add one more ${product.title} from basket"></i>
                                             </div>
-                                            <p>NOK ${sumPriceSpecificProduct},-</p>
+                                            <p class="product__sum">NOK ${sumPriceSpecificProduct},-</p>
                                         </div>
                                     </div>`
 

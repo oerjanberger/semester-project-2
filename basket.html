@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Basket">
+    <meta name="description"
+        content="This is your basket. Here you can see what products you have put in your basket and have yet to complete checkout on">
     <script src="https://kit.fontawesome.com/591f5bf3d7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.typekit.net/ufr7cbx.css">
     <link href="css/style.css" rel="stylesheet">
-    <title>Baby Bliss | Basket</title>
+    <title>Baby Bliss | My Basket</title>
 </head>
 
 <body>
-
-
     <div class="wrapper">
         <header>
             <div class="navbar__container">
@@ -40,7 +39,7 @@
                     <h1>Your Basket</h1>
                     <div class="clearbtn">
                         <p>Clear basket</p>
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash" aria-label="clear the basket of all products"></i>
                     </div>
                 </div>
                 <div class="message__container"></div>
@@ -53,21 +52,19 @@
                     <p class="total__sum"></p>
                 </div>
                 <div class="basket__btn__container">
-                    <a href="products.html"><button class="standard__cta__btn edit__btn">Continue shopping</button></a>
-                    <a href=""><button class="standard__cta__btn ">Checkout</button></a>
+                    <a href="products.html"><button class="standard__cta__btn edit__btn basket__btn"><span>Continue
+                                shopping</span></button></a>
+                    <a href=""><button class="standard__cta__btn basket__btn"><span>Checkout</span></button></a>
                 </div>
             </section>
     </div>
     </main>
     </div>
     <footer>
-        <div class="footer__logo__container">
-            <a href="index.html"><img src="logo/Logo_svg.svg" alt="Baby Bliss logo" class="footer__logo"></a>
-        </div>
         <div class="footer__social__container">
-            <i class="fab fa-instagram footer__social"></i>
-            <i class="fab fa-facebook footer__social"></i>
-            <i class="fab fa-twitter footer__social"></i>
+            <i class="fab fa-instagram footer__social" aria-label="Baby Bliss instagram page"></i>
+            <i class="fab fa-facebook footer__social" aria-label="Baby Bliss facebook page"></i>
+            <i class="fab fa-twitter footer__social" aria-label="Baby Bliss twitter page"></i>
         </div>
         <div class="footer__info__container">
             <h4>Company & Customer Care</h4>

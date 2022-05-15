@@ -5,7 +5,7 @@ export default function stickyNav() {
     const sticky = navBar.offsetTop;
 
     function addSticky() {
-        if (window.pageYOffset >= sticky) {
+        if (window.pageYOffset > sticky) {
             navBar.classList.add("sticky");
         } else {
             navBar.classList.remove("sticky");

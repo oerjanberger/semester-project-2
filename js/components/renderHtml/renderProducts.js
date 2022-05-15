@@ -19,13 +19,15 @@ export default function renderProducts(products) {
         const token = getToken();
 
         if (token) {
-            var productButtons = `<a href="product_details.html?id=${product.id}"><button class="standard__cta__btn">View product</button></a>
-                                <a href="edit.html?id=${product.id}"><button class="standard__cta__btn edit__btn">Edit product</button></a>`
+            var productButtons = `<a href="product_details.html?id=${product.id}"><button class="standard__cta__btn"><span>View product</span></button></a>
+                                <a href="edit.html?id=${product.id}"><button class="standard__cta__btn edit__btn"><span>Edit product</span></button></a>`
         } else if (!token) {
-            var productButtons = `<a href="product_details.html?id=${product.id}"><button class="standard__cta__btn">View product</button></a>`
+            var productButtons = `<a href="product_details.html?id=${product.id}"><button class="standard__cta__btn"><span>View product</span></button></a>`
         }
 
         let cssClass = "far";
+        let heartAriaLabel = "add"
+        let heartAriaLabelCont = "to my favorites"
         const favorites = getProductFromFavorites();
         const isFav = favorites.find((fav) => {
             return parseInt(fav.id) === productId;
@@ -33,11 +35,13 @@ export default function renderProducts(products) {
 
         if (isFav) {
             cssClass = "fas";
+            heartAriaLabel = "remove"
+            heartAriaLabelCont = "from my favorites"
         };
 
         allProductsContainer.innerHTML += `<div class="product__card">
-            <div class="favorite__icon__container"><i class="${cssClass} fa-heart favorite__button" data-id="${productId}" data-title="${productTitle}" data-image="${productImage}" data-alt="${productImageAlt}" data-price="${productPrice}"></i></div>
-            <a href="">
+            <div class="favorite__icon__container"><i class="${cssClass} fa-heart favorite__button" data-id="${productId}" data-title="${productTitle}" data-image="${productImage}" data-alt="${productImageAlt}" data-price="${productPrice}" aria-label="${heartAriaLabel}${productTitle}${heartAriaLabelCont}"></i></div>
+            <a href="product_details.html?id=${product.id}" class="product__card__info__container">
                 <div class="product__img__container"><img src="${productImage}" alt="${productImageAlt}" class="product__image"></div>
                 <div class="product__card__info">
                     <h3>${productTitle}</h3>

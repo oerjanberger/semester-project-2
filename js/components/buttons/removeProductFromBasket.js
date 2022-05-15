@@ -1,5 +1,6 @@
 import { getProductFromBasket, saveToBasket } from "../../utils/storage.js";
 import renderBasket from "../renderHtml/renderBasket.js";
+import basketQuantityCounter from "../common/basketQuantityCounter.js";
 
 export default function removeProductFromBasket() {
     const id = this.dataset.id;
@@ -14,4 +15,5 @@ export default function removeProductFromBasket() {
         saveToBasket(updatedBasket);
         renderBasket();
     }
+    basketQuantityCounter()
 }

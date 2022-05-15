@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Edit product page">
+    <meta name="description" content="">
     <script src="https://kit.fontawesome.com/591f5bf3d7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.typekit.net/ufr7cbx.css">
     <link href="css/style.css" rel="stylesheet">
-    <title>Baby Bliss | Edit products</title>
+    <title></title>
 </head>
 
 <body>
@@ -33,47 +33,77 @@
             </div>
         </header>
         <main>
-            <section class="edit__product__container">
-                <div class="back__to__products__container">
-                    <i class="fal fa-angle-left"></i>
-                    <p>Back to all products</p>
+            <section class="container">
+                <div class="content__wrapper">
+                    <a href="products.html" class="all__products__link__container back_btn"><i
+                            class="fas fa-angle-left back__arrow"></i>
+                        <p>Back to all products</p>
+                    </a>
+                    <h1>Add product </h1>
+                    <div class="message__container"></div>
+                    <div class="loading__products">
+                        <img src="./logo/Stork_SVG.svg" alt="loading symbol"
+                            class="loading__symbol loading__symbol__one">
+                        <img src="./logo/flying_stork.svg" alt="loading symbol"
+                            class="loading__symbol loading__symbol__two">
+                    </div>
+                    <form class="edit__product__form">
+                        <div class="input__container">
+                            <label for="title">Product title</label>
+                            <input type="text" name="Title" id="title" class="title">
+                            <p class="helper__text">Minimum 5 characters</p>
+                            <div class="title__error"></div>
+                        </div>
+                        <div class="input__container">
+                            <label for="description">Description</label>
+                            <textarea name="Description" id="description" class="description"></textarea>
+                            <p class="helper__text">Minimum 20 characters</p>
+                            <div class="description__error"></div>
+                        </div>
+                        <div class="input__container">
+                            <label for="price">Price</label>
+                            <input type="text" name="Price" id="price" class="price">
+                            <p class="helper__text">Only numbers and must have 2 decimals ex: 99.89</p>
+                            <div class="price__error"></div>
+                        </div>
+                        <div class="edit__img__container">
+                            <div class="input__container">
+                                <label for="image">Upload image</label>
+                                <input type="file" name="files.Image" id="image" class="image">
+                                <p class="helper__text">Must be a JPG, JPEG or PNG image. Max 200mb</p>
+                                <div class="image__error"></div>
+                            </div>
+                            <div class="preview__img__container"></div>
+                        </div>
+                        <div class="input__container">
+                            <label for="image__alt">Image alternative text</label>
+                            <input type="text" name="Image_alt_text" id="image__alt" class="image__alt">
+                            <p class="helper__text">Explain the image for those who can't see it!</p>
+                            <div class="image__alt__error"></div>
+                        </div>
+                        <label>Featured</label>
+                        <div class="featured__icon__container">
+                            <i class="fas fa-check-circle featured__yes featured__icon"></i>
+                            <i class="fas fa-times-circle featured__no featured__icon"></i>
+                            <input type="checkbox" name="Featured" id="featured" class="featured__checkbox">
+                        </div>
+                        <input type="hidden" name="product__id" id="product__id" class="input__product__id">
+                        <div class="basket__btn__container">
+                            <button class="standard__cta__btn basket__btn"><span>Complete edit</span></button>
+                            <button class="standard__cta__btn edit__btn basket__btn"><span>Delete
+                                    product</span></button>
+                        </div>
+
+                    </form>
                 </div>
-                <h1>Edit product </h1>
-                <form class="add__product__form">
-                    <label for="title">Product title</label>
-                    <input type="text" name="title" id="title" class="title">
-                    <p>Minimum 5 characters</p>
-                    <div class="title__error"></div>
-                    <label for="description">Description</label>
-                    <textarea name="description" id="description" class="description"></textarea>
-                    <p>Minimum 20 characters</p>
-                    <div class="description__error"></div>
-                    <label for="price">Price</label>
-                    <input type="number" name="price" id="price" class="price">
-                    <p>Must have 2 decimals ex: 99,89</p>
-                    <div class="price__error"></div>
-                    <label for="image">Upload image</label>
-                    <input type="file" name="image" id="image" class="image">
-                    <p>Must be a JPG, JPEG or PNG image. Max 200mb</p>
-                    <div class="image__error"></div>
-                    <h5>Featured</h5>
-                    <label for="featured__yes"><i class="fas fa-check-circle"></i></label>
-                    <input type="radio" name="featured__yes" id="featured__yes" class="featured__yes">
-                    <label for="featured__no"><i class="fas fa-times-circle"></i></label>
-                    <input type="radio" name="featured__no" id="featured__no" class="featured__no">
-                </form>
-                <button class="standard__cta__btn">Edit product</button>
             </section>
         </main>
     </div>
     <footer>
-        <div class="footer__logo__container">
-            <a href="index.html"><img src="logo/Logo_svg.svg" alt="Baby Bliss logo" class="footer__logo"></a>
-        </div>
         <div class="footer__social__container">
-            <i class="fab fa-instagram footer__social"></i>
-            <i class="fab fa-facebook footer__social"></i>
-            <i class="fab fa-twitter footer__social"></i>
+            <i class="fab fa-instagram footer__social" aria-label="Baby Bliss instagram page"></i>
+            <i class="fab fa-facebook footer__social" aria-label="Baby Bliss facebook page"></i>
+            <i class="fab fa-twitter footer__social" aria-label="Baby Bliss twitter page"></i>
         </div>
         <div class="footer__info__container">
             <h4>Company & Customer Care</h4>
@@ -94,7 +124,7 @@
             </a>
         </div>
     </footer>
-    <script src="js/EditProduct.js" type="module"></script>
+    <script src="js/edit.js" type="module"></script>
 </body>
 
 </html>

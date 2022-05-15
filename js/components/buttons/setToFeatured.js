@@ -8,6 +8,9 @@ export default function setToFeatured() {
 
     if (featuredInput.checked === false) {
         featuredNoBtn.style.color = "#E28D8D";
+    } else {
+        featuredYesBtn.style.color = "#B2C6BD";
+        featuredNoBtn.style.color = "#423F38";
     };
 
     function productFeatured() {

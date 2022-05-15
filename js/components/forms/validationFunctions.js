@@ -18,7 +18,7 @@ export function checkPrice(price) {
 
 
 export function checkLength(value, len) {
-    if (value.trim().length > len) {
+    if (value.trim().length < len) {
         return true;
     } else {
         return false;

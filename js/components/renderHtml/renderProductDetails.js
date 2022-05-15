@@ -11,6 +11,8 @@ export default function renderProductDetails(product) {
     const productPrice = product.attributes.Price;
 
     let cssClass = "far";
+    let heartAriaLabel = "add"
+    let heartAriaLabelCont = "to my favorites"
     const favorites = getProductFromFavorites();
     const isFav = favorites.find((fav) => {
         return parseInt(fav.id) === product.id;
@@ -18,6 +20,8 @@ export default function renderProductDetails(product) {
 
     if (isFav) {
         cssClass = "fas";
+        heartAriaLabel = "remove"
+        heartAriaLabelCont = "from my favorites"
     };
 
     productDetailsContainer.innerHTML += `
@@ -27,19 +31,20 @@ export default function renderProductDetails(product) {
         </div>
         <div class="product__detail__grid">
             <div class="details__img__fav__container">
-                <div class="favorite__icon__container"><i class="${cssClass}  fa-heart favorite__button" data-id="${product.id}" data-title="${productTitle}" data-image="${productImage}" data-alt="${productImageAlt}" data-price="${productPrice}"></i></div>
-                <a href="">
+                <div class="favorite__icon__container"><i class="${cssClass}  fa-heart favorite__button" data-id="${product.id}" data-title="${productTitle}" data-image="${productImage}" data-alt="${productImageAlt}" data-price="${productPrice}" aria-label="${heartAriaLabel}${productTitle}${heartAriaLabelCont}"></i></div>
+                <div>
                     <div class="product__details__img__container"><img
                             src="${productImage}" alt="${productImageAlt}"
                             class="product__details__image"></div>
-                </a>
+                </div>
             </div>
             <div class="product__detail__info">
                 <h2>Product description</h2>
                 <p>${productDescription}</p>
-                <p>Nok ${productPrice},-</p>
-                <button class="standard__cta__btn add__to__basket" data-id="${product.id}" data-title="${productTitle}" data-price="${productPrice}" data-image="${productImage}" data-alt="${productImageAlt}">Add to basket</button></a>
-            </div>`;
+                <p class="product__detail__price">Nok ${productPrice},-</p>     
+            </div>
+            <button class="standard__cta__btn add__to__basket" data-id="${product.id}" data-title="${productTitle}" data-price="${productPrice}" data-image="${productImage}" data-alt="${productImageAlt}"><span>Add to basket</span></button>
+        </div>`;
 
     addProductToFavorites();
     addProductToBasket();

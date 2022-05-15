@@ -1,15 +1,25 @@
 .heading__clearbtn__container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
 
-    .clearbtn {
-        display: flex;
-        align-items: center;
+.heading__clearbtn__container h1 {
+    order: 2;
+}
 
-        p {
-            margin-right: 10px;
-        }
-    }
+.clearbtn {
+    display: flex;
+    align-items: center;
+    border: 2px solid getColour(highlightorange);
+    border-radius: 2px;
+    width: 150px;
+    height: 40px;
+    align-self: end;
+    order: 1;
+}
+
+.clearbtn p {
+    margin: 0px 10px 0px 10px;
 }
 
 .basket__grid {
@@ -34,25 +44,25 @@
     display: grid;
     grid-template-columns: auto auto;
     row-gap: 10px;
+}
 
-    h5 {
-        margin: 0px;
-    }
+.basket__info__container h5 {
+    margin: 0px;
+}
 
-    .counter__container {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        display: flex;
-        justify-self: center;
-    }
+.counter__container {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    justify-self: center;
+}
 
-    p {
-        grid-column-start: 2;
-        grid-column-end: 3;
-        font-size: 0.7rem;
-        justify-self: end;
-        margin: 0px;
-    }
+.basket__info__container p {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-size: 0.7rem;
+    justify-self: end;
+    margin: 0px;
 }
 
 .counter__icon {
@@ -82,13 +92,62 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
 
-    p {
-        font-size: 0.9rem;
-    }
+.sum__container p {
+    font-size: 0.9rem;
+    text-decoration: underline double;
 }
 
 .basket__btn__container {
     display: grid;
+    justify-content: center;
     gap: 15px;
+}
+
+.counter__icon:hover,
+.product__trash:hover,
+.clearbtn:hover {
+    cursor: pointer;
+}
+
+.clearbtn:hover {
+    box-shadow: 2px 2px 2px getColour(primaryred);
+}
+
+@media(min-width: 720px) {
+
+    .product__trash,
+    .sum__container p,
+    .basket__info__container h5,
+    .counter__icon {
+        font-size: 1.3rem;
+    }
+
+    .basket__info__container p {
+        font-size: 1.2rem;
+    }
+
+    .basket__img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .counter__icon {
+        padding: 10px;
+    }
+
+    .basket__btn__container {
+        grid-template-columns: auto auto;
+    }
+
+    .sum__container h4 {
+        font-size: 1.6rem;
+    }
+}
+
+@media(min-width: 1000px) {
+    .basket__btn {
+        width: 450px;
+    }
 }

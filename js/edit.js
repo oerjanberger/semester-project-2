@@ -1,9 +1,10 @@
-import createNav from "./components/common/createNav.js";
 import { baseUrl } from "./data/api.js";
+import createNav from "./components/common/createNav.js";
+import setToFeatured from "./components/buttons/setToFeatured.js"
+import validateEditProductForm from "./components/forms/validateEditProductForm.js";
+import populateEditPage from "./components/forms/populateEditPage.js";
 import displayMessage from "./components/common/displayMessage.js";
 import MESSAGES from "./constants/messages.js";
-import renderProductDetails from "./components/renderHtml/renderProductDetails.js";
-
 
 createNav();
 
@@ -15,20 +16,23 @@ const loadingProducts = document.querySelector(".loading__products");
 const pageTitle = document.querySelector("title");
 const pageDescription = document.querySelector(`meta[name="description"]`);
 
-(async function getProductDetails() {
+if (!id) {
+    document.location = "/";
+}
+
+(async function getEditProductDetails() {
     try {
         const response = await fetch(productSpecificUrl);
         const json = await response.json();
         loadingProducts.style.display = "none";
         const product = json.data
-        renderProductDetails(product)
-
+        populateEditPage(product)
 
         pageTitle.innerHTML = "";
         pageDescription.innerHTML = "";
 
-        pageTitle.innerHTML = `Baby Bliss || ${product.attributes.Title}`;
-        pageDescription.innerHTML = `Product Title: ${product.attributes.Title} Product description ${product.attributes.Description}`;
+        pageTitle.innerHTML = `Baby Bliss || Edit ${product.attributes.Title}`;
+        pageDescription.innerHTML = `On this page you as an admin user can edit this product: ${product.attributes.Title}`;
 
     } catch (error) {
         console.log(error)
@@ -37,4 +41,14 @@ const pageDescription = document.querySelector(`meta[name="description"]`);
 
     }
 })();
+setToFeatured();
 
+const successMessage = document.querySelector(".message__container")
+
+const form = document.querySelector(".edit__product__form");
+form.addEventListener("submit", validateEditProductForm)
+form.addEventListener("click", resetMessage)
+
+function resetMessage() {
+    successMessage.innerHTML = "";
+}

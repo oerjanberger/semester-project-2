@@ -1,5 +1,6 @@
 import renderBasket from "../components/renderHtml/renderBasket.js";
 import { BASKET_KEY, FAVORITES_KEY, USERNAME, TOKEN_KEY } from "../constants/keys.js";
+import basketQuantityCounter from "../components/common/basketQuantityCounter.js";
 
 export function saveToken(token) {
     saveToStorage(TOKEN_KEY, token);
@@ -52,6 +53,7 @@ export function getProductFromBasket() {
 export function clearBasketFromStorage() {
     localStorage.removeItem(BASKET_KEY);
     renderBasket();
+    basketQuantityCounter()
 }
 
 export function clearUserFromStorage() {

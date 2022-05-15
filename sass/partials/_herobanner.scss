@@ -3,10 +3,17 @@
 }
 
 .herobanner__img {
-    background-image: url("../../logo/taisiia-shestopal-8IIZAnpRX30-unsplash.jpg");
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    background-position: top;
+    background-position: top 0px right -100px;
+
     background-repeat: no-repeat;
+}
+
+@media(min-width: 880px) {
+    .herobanner__img {
+        background-position: top;
+    }
+
 }

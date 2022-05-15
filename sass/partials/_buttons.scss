@@ -11,9 +11,29 @@ button:hover {
     font-size: 1.2rem;
 }
 
+.standard__cta__btn:hover span {
+    display: none;
+}
+
+.standard__cta__btn:hover::before {
+    content: url(../../logo/small_flying_stork.svg);
+}
+
+.standard__cta__btn:hover {
+    padding-top: 7px;
+    border: 2px solid getColour(textcolourprimary);
+    background-color: getColour(backgroundwhite);
+}
+
 .edit__btn {
     background-color: getColour(tertiarygreen);
     color: getColour(textcoloursecondary);
+}
+
+.all__products__btn__container {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
 }
 
 .all__products__link__container {
@@ -22,26 +42,57 @@ button:hover {
     display: flex;
     gap: 20px;
     font-size: 1.3rem;
+    border: 2px solid getColour(highlightorange);
+    width: 300px;
 
-    .logo_btn {
+    .logo__btn {
         max-width: 50px;
     }
 }
 
 .all__products__link__container:hover {
     cursor: pointer;
+    box-shadow: 3px 3px 3px getColour(primaryred);
 
     .logo_btn {
         max-width: 60px;
+    }
+
+    .flying__logo {
+        max-width: 50px;
     }
 }
 
 .back_btn {
     justify-content: left;
     font-size: 1.1rem;
+    border: none;
 
     .back__arrow {
         align-self: center;
         font-size: 1.6rem;
+    }
+}
+
+.back_btn:hover {
+    box-shadow: none;
+}
+
+.form__btn {
+    height: 50px;
+    width: 100%;
+}
+
+.form__btn:hover {
+    padding-left: 120px;
+}
+
+.login__btn {
+    width: 100%;
+}
+
+@media(min-width: 720px) {
+    .login__btn {
+        height: 50px;
     }
 }

@@ -1,4 +1,7 @@
+import MESSAGES from "../../constants/messages.js";
 import { getProductFromBasket, saveToBasket } from "../../utils/storage.js";
+import displayMessage from "../common/displayMessage.js";
+import basketQuantityCounter from "../common/basketQuantityCounter.js";
 
 export default function addProductToBasket() {
     const addToBasketBtn = document.querySelector(".add__to__basket");
@@ -30,5 +33,9 @@ export default function addProductToBasket() {
             specificProduct.quantity++;
             saveToBasket(currentProductsInBasket);
         };
+        window.scrollTo(0, 0)
+        displayMessage("success", MESSAGES.productAddedToBasket, ".message__container")
+        basketQuantityCounter()
+
     }
 }

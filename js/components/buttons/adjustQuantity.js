@@ -1,5 +1,6 @@
 import { getProductFromBasket, saveToBasket } from "../../utils/storage.js";
 import renderBasket from "../renderHtml/renderBasket.js";
+import basketQuantityCounter from "../common/basketQuantityCounter.js";
 
 export function plusProduct() {
     const id = this.dataset.id
@@ -11,6 +12,7 @@ export function plusProduct() {
     thisProduct.quantity++;
     saveToBasket(currentProductsInBasket)
     renderBasket();
+    basketQuantityCounter()
 };
 
 export function minusProduct() {
@@ -29,4 +31,5 @@ export function minusProduct() {
         saveToBasket(newBasket);
     }
     renderBasket();
+    basketQuantityCounter()
 }

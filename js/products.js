@@ -10,14 +10,16 @@ let totalPages = 0;
 const previousPage = document.querySelector(".fa-chevron-left")
 const nextPage = document.querySelector(".fa-chevron-right")
 const messageContainer = document.querySelector(".pagination__message__container");
+const loadingProducts = document.querySelector(".loading__products")
 
 createNav();
 
 async function getAllProducts() {
-    const productUrl = `${baseUrl}products?pagination[page]=${count}&pagination[pageSize]=12&populate=*`;
+    const productUrl = `${baseUrl}products?pagination[page]=${count}&pagination[pageSize]=16&populate=*`;
     try {
         const response = await fetch(productUrl);
         const result = await response.json();
+        loadingProducts.style.display = "none";
         const products = result.data;
         const pages = result.meta;
         totalPages = pages.pagination.pageCount;
@@ -42,7 +44,8 @@ async function getAllProducts() {
     }
     catch (error) {
         console.log(error);
-        displayMessage("error", MESSAGES.error, ".all__products__grid");
+        loadingProducts.style.display = "none";
+        displayMessage("error", MESSAGES.error, ".message__container");
     }
 };
 getAllProducts();
@@ -68,11 +71,13 @@ function showNextPageButton() {
 function showNextPage() {
     count++;
     getAllProducts();
+    window.scrollTo(0, 0)
 };
 
 function showPreviousPage() {
     count--;
     getAllProducts();
+    window.scrollTo(0, 0)
 };
 
 previousPage.addEventListener("click", showPreviousPage);
