@@ -45,9 +45,7 @@ export default function renderBasket() {
         totalSum.innerHTML = `NOK ${totalPrice},-`
     });
     clearBasketBtn.addEventListener("click", clearBasketFromStorage);
-
-    const removeProductBtn = document.querySelectorAll(".product__trash");
-    removeProductBtn.forEach((btn) => { btn.addEventListener("click", removeProductFromBasket) });
+    removeProductFromBasket()
 
     const quantityPlusBtn = document.querySelectorAll(".fa-plus");
     quantityPlusBtn.forEach((btn) => { btn.addEventListener("click", plusProduct) });

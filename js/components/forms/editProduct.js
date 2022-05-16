@@ -3,45 +3,38 @@ import { saveToFavorites, getProductFromFavorites, getProductFromBasket, saveToB
 import displayMessage from "../common/displayMessage.js";
 import MESSAGES from "../../constants/messages.js";
 
-export default async function editProduct(title, description, price, image, alt, featured, id) {
+export async function editProduct(title, description, price, alt, featured, id) {
     const url = `${baseUrl}products/${id}?populate=*`;
     const token = getToken();
+    const imageUploadId = document.querySelector("#image__id");
+    const newImageId = imageUploadId.value;
+    const editForm = document.querySelector(".edit__product__form");
+    console.log(newImageId);
+    const formData = new FormData(editForm);
+    const body = new FormData();
 
-    const imageError = document.querySelector(".image__error")
-    const imageInput = document.querySelector("#image");
-    const imageValue = image;
-
-    let data = JSON.stringify({ Title: title, Description: description, Price: price, Image_alt_text: alt, Featured: featured })
-
-    const imageFault = imageInput.files.length === 0 || imageValue.size > 200000000 || imageValue.type !== "image/jpeg" && imageValue.type !== "image/jpg" && imageValue.type !== "image/png"
-
-    const formData = new FormData();
-    formData.append("data", data);
-
-    if (imageInput.files.length > 0 && !imageFault) {
-        formData.append("files.Image", image, image.name);
-        console.log(image)
-        console.log(image.name)
-        imageError.innerHTML = "";
-    }
+    const file = formData.get("files.Image");
+    body.append("files.Image", file);
+    formData.delete("files.Image");
+    const data = JSON.stringify({ Title: title, Description: description, Price: price, Image: newImageId, Image_alt_text: alt, Featured: featured });
+    body.append("data", data);
 
     const options = {
         method: "PUT",
-        body: formData,
+        body,
         headers: { "Authorization": `Bearer ${token}` },
         enctype: "multipart/form-data"
     };
-    console.log(options)
 
     try {
         const response = await fetch(url, options);
         const json = await response.json();
         console.log(json);
-        if (json.data.attributes.updated_at) {
+        if (json.data.attributes.updatedAt) {
             displayMessage("success", MESSAGES.productEdited, ".message__container");
             window.scrollTo(0, 0)
-
-            const newProductImage = product.attributes.Image.data.attributes.url;
+            const newProductImage = json.data.attributes.Image.data.attributes.url;
+            console.log(newProductImage)
 
             const currentProductsInBasket = getProductFromBasket();
             const productExistInBasket = currentProductsInBasket.find((product) => {

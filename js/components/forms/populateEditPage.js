@@ -1,8 +1,7 @@
 import setToFeatured from "../buttons/setToFeatured.js";
 
-export default function populateEditPage(product) {
-    console.log(product)
-    const productImage = product.attributes.Image.data.attributes.url;
+export function populateEditPage(product) {
+    let productImage = product.attributes.Image.data.attributes.url;
     const productImageAlt = product.attributes.Image_alt_text;
     const productTitle = product.attributes.Title;
     const productPrice = product.attributes.Price;
@@ -21,12 +20,27 @@ export default function populateEditPage(product) {
     description.value = productDescription;
     price.value = parseFloat(productPrice);
     imageAlt.value = productImageAlt;
-    featuredInput.checked = featured
+    featuredInput.checked = featured;
+
     previewImgContainer.innerHTML = `
-    <label for="preview__img">Preview image</label>
-    <img src="${productImage}" alt${productImageAlt} class="preview__img" id="preview__img">`
-    productId.value = product.id
+    <label for="preview__img">Current image</label>
+    <img src="${productImage}" alt="${productImageAlt}" class="preview__img" id="preview__img">`;
+    productId.value = product.id;
 
-    setToFeatured()
+    setToFeatured();
+};
 
+export function populateWithNewImage(image) {
+    const imageName = document.querySelector("#image__name");
+    console.log(image)
+    imageName.value = image.name;
+    console.log(imageName.value)
+
+
+    const previewNewImgContainer = document.querySelector(".preview__new__img__container")
+    if (image) {
+        previewNewImgContainer.innerHTML = `
+        <label for="preview__new__img">New image</label>
+        <img src="${image.url}" alt="new image, please write alt text in input field below"" class="preview__img" id="preview__img">`;
+    }
 }

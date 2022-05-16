@@ -24,12 +24,12 @@ export default function createNav() {
 
     if (username) {
         authLink = `<li><a href="add_product.html" class="${pathname === "/add_product.html" ? "active" : ""}">Add Product</a><a href="add_product.html"><i class="fas fa-plus"></i></a></li>
-        <li class="logout__btn"><a href="">Logout</a><a href=""><i class="fas fa-user-alt"></i></a></li>`;
+        <li class="logout__btn">Logout<i class="fas fa-user-alt"></i></li>`;
         if (getStyleAltNav === "110px") {
             secondAuthlink = `<li><a href="add_product.html"><i class="fas fa-plus" aria-label="add product"></i></a></li>
-            <li class="alt__nav__user logout__btn"><a href=""><i class="fas fa-user-alt" aria-label="logout user"></i><div class="logout__user__x">X</div></a></li>`;
+            <li class="alt__nav__user logout__btn"><i class="fas fa-user-alt" aria-label="logout user"></i><div class="logout__user__x">X</div></li>`;
         } else {
-            secondAuthlink = `<li class="alt__nav__user logout__btn"><a href=""><i class="fas fa-user-alt" aria-label="log out user"></i><div class="logout__user__x">X</div></a></li>`;
+            secondAuthlink = `<li class="alt__nav__user logout__btn"><i class="fas fa-user-alt" aria-label="log out user"></i><div class="logout__user__x">X</div></li>`;
         }
 
     }

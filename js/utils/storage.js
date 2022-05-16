@@ -51,9 +51,26 @@ export function getProductFromBasket() {
 }
 
 export function clearBasketFromStorage() {
-    localStorage.removeItem(BASKET_KEY);
-    renderBasket();
-    basketQuantityCounter()
+    const modalContainer = document.querySelector(".modal__container");
+    const modalLogo = document.querySelector(".modal__logo");
+    const modalMessage = document.querySelector(".modal__message");
+    const cancelBtn = document.querySelector("#cancel__btn");
+    const confirmBtn = document.querySelector("#confirm__btn");
+
+    modalContainer.style.display = "block";
+    modalLogo.innerHTML = `<i class="fas fa-shopping-bag modal__basket" aria-label="shopping basket"></i>`;
+    modalMessage.innerHTML = `<p>Are you sure you want to clear your basket?</p>`;
+
+    confirmBtn.addEventListener("click", () => {
+        modalContainer.style.display = "none";
+        localStorage.removeItem(BASKET_KEY);
+        renderBasket();
+        basketQuantityCounter()
+    });
+
+    cancelBtn.addEventListener("click", () => {
+        modalContainer.style.display = "none";
+    });
 }
 
 export function clearUserFromStorage() {

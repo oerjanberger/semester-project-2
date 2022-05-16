@@ -21,6 +21,12 @@
     height: 350px;
     object-position: center;
     object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.product__details__img__container:hover .product__details__image {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .add__to__basket {

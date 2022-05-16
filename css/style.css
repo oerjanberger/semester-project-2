@@ -350,6 +350,80 @@ footer {
   }
 }
 
+.modal__container,
+.image__modal__container {
+  display: none;
+  padding-top: 200px;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 300;
+  overflow: auto;
+  background-color: #f7f1f1ad;
+}
+
+.image__modal__container {
+  padding-bottom: 20px;
+}
+
+.modal__content {
+  background-color: #F7F1F1;
+  width: 80%;
+  max-width: 400px;
+  border: 2px solid #D4A591;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+.modal__content hr {
+  margin: 0px 0px 10px 0px;
+}
+
+.modal__logo {
+  position: relative;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.modal__basket {
+  font-size: 2rem;
+  margin: 20px 0px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.close__btn {
+  font-size: 2.5rem;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+.image__modal {
+  margin: auto;
+  display: block;
+  overflow: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (min-width: 720px) {
+  .image__modal__container {
+    padding-top: 20px;
+  }
+  .close {
+    top: 60px;
+    right: 60px;
+  }
+}
+
 .loading__products,
 .loading__herobanner {
   display: -webkit-box;
@@ -449,7 +523,8 @@ footer {
   }
 }
 
-button:hover {
+button:hover,
+.logout__btn:hover {
   cursor: pointer;
 }
 
@@ -556,9 +631,33 @@ button:hover {
   width: 100%;
 }
 
+.verify__btn {
+  min-width: 90px;
+  border: 4px solid #B2C6BD;
+}
+
+.verify__success {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 4px solid #F7F1F1;
+  background-color: #B2C6BD;
+}
+
+.modal__btn {
+  max-width: 170px;
+}
+
 @media (min-width: 720px) {
   .login__btn {
     height: 50px;
+  }
+  .verify__btn {
+    min-width: 111px;
+    padding: 0px 10px;
+    font-size: 1rem;
+  }
+  .modal__btn {
+    margin: 20px 0px;
   }
 }
 
@@ -732,7 +831,7 @@ button:hover {
 input,
 textarea {
   border: 3px solid #D4A591;
-  height: 40px;
+  height: 45px;
   font-size: 0.9rem;
 }
 
@@ -744,7 +843,7 @@ textarea:focus {
 
 input[type=file]::file-selector-button {
   height: inherit;
-  width: 100px;
+  width: 70px;
   border: none;
   border-right: 2px solid #D4A591;
   background-color: #F7F1F1;
@@ -901,6 +1000,16 @@ input[type=file]::file-selector-button:hover {
      object-position: center;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transition: -webkit-transform .5s ease;
+  transition: -webkit-transform .5s ease;
+  transition: transform .5s ease;
+  transition: transform .5s ease, -webkit-transform .5s ease;
+}
+
+.product__details__img__container:hover .product__details__image {
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .add__to__basket {
@@ -1192,7 +1301,8 @@ hr {
   font-size: 2.4rem;
 }
 
-.preview__img__container {
+.preview__img__container,
+.preview__new__img__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1209,13 +1319,68 @@ hr {
   margin: 5px 0px 20px 0px;
 }
 
+.image__input__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+}
+
+.verify__image__loader {
+  display: none;
+  border: 6px dotted #423F38;
+  border-top: 3px solid #F7F1F1;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-left: 20px;
+  -webkit-animation: spin 2500ms linear infinite;
+          animation: spin 2500ms linear infinite;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.fa-check {
+  font-size: 1.3rem;
+  color: #423F38;
+}
+
 @media (min-width: 1000px) {
   .edit__img__container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr auto;
-        grid-template-columns: 1fr auto;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
     gap: 20px;
+  }
+  .image__input__container {
+    gap: 20px;
+  }
+  .preview__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 100px;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,9 +2,11 @@ import { baseUrl } from "./data/api.js";
 import createNav from "./components/common/createNav.js";
 import setToFeatured from "./components/buttons/setToFeatured.js"
 import validateEditProductForm from "./components/forms/validateEditProductForm.js";
-import populateEditPage from "./components/forms/populateEditPage.js";
+import { populateEditPage } from "./components/forms/populateEditPage.js";
+import uploadImage from "./components/forms/uploadImage.js";
 import displayMessage from "./components/common/displayMessage.js";
 import MESSAGES from "./constants/messages.js";
+import deleteProductBtn from "./components/buttons/deleteProductBtn.js";
 
 createNav();
 
@@ -12,9 +14,11 @@ const querystring = document.location.search;
 const params = new URLSearchParams(querystring);
 const id = params.get("id");
 const productSpecificUrl = baseUrl + "products/" + id + "?populate=*";
+
 const loadingProducts = document.querySelector(".loading__products");
 const pageTitle = document.querySelector("title");
 const pageDescription = document.querySelector(`meta[name="description"]`);
+const verifyBtn = document.querySelector(".verify__btn");
 
 if (!id) {
     document.location = "/";
@@ -42,6 +46,9 @@ if (!id) {
     }
 })();
 setToFeatured();
+deleteProductBtn();
+
+verifyBtn.addEventListener("click", uploadImage);
 
 const successMessage = document.querySelector(".message__container")
 

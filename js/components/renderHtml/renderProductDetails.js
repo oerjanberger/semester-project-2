@@ -1,6 +1,7 @@
 import { getProductFromFavorites } from "../../utils/storage.js";
 import addProductToFavorites from "../buttons/addProductToFavorites.js";
 import addProductToBasket from "../buttons/addProductToBasket.js";
+import imageModal from "../modals/imageModal.js";
 
 export default function renderProductDetails(product) {
     const productDetailsContainer = document.querySelector(".product__details__container");
@@ -48,6 +49,7 @@ export default function renderProductDetails(product) {
 
     addProductToFavorites();
     addProductToBasket();
+    imageModal();
 }
 
 

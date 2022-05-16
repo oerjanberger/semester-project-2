@@ -1,6 +1,6 @@
 import MESSAGES from "../../constants/messages.js";
 import displayMessage from "../common/displayMessage.js";
-import editProduct from "./editProduct.js";
+import { editProduct } from "./editProduct.js";
 import { checkPrice, checkLength } from "./validationFunctions.js"
 
 export default function validateEditProductForm(event) {
@@ -11,8 +11,6 @@ export default function validateEditProductForm(event) {
     const descriptionError = document.querySelector(".description__error");
     const price = document.querySelector("#price");
     const priceError = document.querySelector(".price__error");
-    const image = document.querySelector("#image");
-    const imageError = document.querySelector(".image__error");
     const imageAlt = document.querySelector("#image__alt");
     const imageAltError = document.querySelector(".image__alt__error");
     const featuredInput = document.querySelector(".featured__checkbox");
@@ -22,18 +20,15 @@ export default function validateEditProductForm(event) {
     titleError.innerHTML = "";
     descriptionError.innerHTML = "";
     priceError.innerHTML = "";
-    imageError.innerHTML = "";
     imageAltError.innerHTML = "";
     successMessage.innerHTML = "";
 
     const titleValue = title.value.trim();
     const descriptionValue = description.value.trim();
     const priceValue = price.value.trim();
-    const imageFile = image.files[0];
     const imageAltValue = imageAlt.value.trim();
     const featuredValue = featuredInput.checked;
     const productIdValue = productId.value.trim();
-
 
     var validForm = true;
 
@@ -62,7 +57,7 @@ export default function validateEditProductForm(event) {
         window.scrollTo(0, 0)
     };
     if (validForm) {
-        editProduct(titleValue, descriptionValue, priceValue, imageFile, imageAltValue, featuredValue, productIdValue)
+        editProduct(titleValue, descriptionValue, priceValue, imageAltValue, featuredValue, productIdValue)
     }
 
 }

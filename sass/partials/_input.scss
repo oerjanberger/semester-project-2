@@ -13,7 +13,7 @@
 input,
 textarea {
     border: 3px solid getColour(highlightorange);
-    height: 40px;
+    height: 45px;
     font-size: 0.9rem;
 
     &:focus {
@@ -24,7 +24,7 @@ textarea {
 
 input[type=file]::file-selector-button {
     height: inherit;
-    width: 100px;
+    width: 70px;
     border: none;
     border-right: 2px solid getColour(highlightorange);
     background-color: getColour(backgroundwhite);

@@ -1,4 +1,5 @@
-button:hover {
+button:hover,
+.logout__btn:hover {
     cursor: pointer;
 }
 
@@ -91,8 +92,33 @@ button:hover {
     width: 100%;
 }
 
+.verify__btn {
+    min-width: 90px;
+    border: 4px solid getColour(secondaryturquoise);
+}
+
+.verify__success {
+    box-shadow: none;
+    border: 4px solid getColour(backgroundwhite);
+    background-color: getColour(secondaryturquoise);
+}
+
+.modal__btn {
+    max-width: 170px;
+}
+
 @media(min-width: 720px) {
     .login__btn {
         height: 50px;
+    }
+
+    .verify__btn {
+        min-width: 111px;
+        padding: 0px 10px;
+        font-size: 1rem;
+    }
+
+    .modal__btn {
+        margin: 20px 0px;
     }
 }
