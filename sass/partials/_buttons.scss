@@ -20,6 +20,10 @@ button:hover,
     content: url(../../logo/small_flying_stork.svg);
 }
 
+.standard__cta__btn:hover::after span {
+    display: block;
+}
+
 .standard__cta__btn:hover {
     padding-top: 7px;
     border: 2px solid getColour(textcolourprimary);
@@ -46,6 +50,7 @@ button:hover,
     border: 2px solid getColour(highlightorange);
     width: 300px;
     height: 64px;
+    background-color: getColour(backgroundwhite);
 
     .logo__btn {
         max-width: 50px;
