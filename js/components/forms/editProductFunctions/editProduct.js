@@ -1,8 +1,8 @@
-import { baseUrl } from "../../data/api.js";
-import { saveToFavorites, getProductFromFavorites, getProductFromBasket, saveToBasket, getToken } from "../../utils/storage.js";
-import displayMessage from "../common/displayMessage.js";
-import MESSAGES from "../../constants/messages.js";
-import renderModalBasket from "../modals/renderModalBasket.js";
+import { baseUrl } from "../../../data/api.js";
+import { saveToFavorites, getProductFromFavorites, getProductFromBasket, saveToBasket, getToken } from "../../../utils/storage.js";
+import displayMessage from "../../common/displayMessage.js";
+import MESSAGES from "../../../constants/messages.js";
+import renderModalBasket from "../../modals/renderModalBasket.js";
 
 export async function editProduct(title, description, price, alt, featured, id) {
     const url = `${baseUrl}products/${id}?populate=*`;

@@ -1,7 +1,7 @@
-import { getProductFromBasket, saveToBasket } from "../../utils/storage.js";
-import renderBasket from "../renderHtml/renderBasket.js";
-import basketQuantityCounter from "../common/basketQuantityCounter.js";
-import renderModalBasket from "../modals/renderModalBasket.js";
+import { getProductFromBasket, saveToBasket } from "../../../utils/storage.js";
+import renderBasket from "../../renderHtml/renderBasket.js";
+import basketQuantityCounter from "../../common/nav/basketQuantityCounter.js";
+import renderModalBasket from "../../modals/renderModalBasket.js";
 
 export function plusProduct() {
     const id = this.dataset.id
@@ -56,6 +56,12 @@ export function minusProduct() {
         cancelBtn.addEventListener("click", () => {
             modalContainer.style.display = "none";
         });
+
+        window.onclick = function (event) {
+            if (event.target === modalContainer) {
+                modalContainer.style.display = "none";
+            }
+        }
     }
     renderBasket();
     renderModalBasket();

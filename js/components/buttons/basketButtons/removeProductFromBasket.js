@@ -1,7 +1,7 @@
-import { getProductFromBasket, saveToBasket } from "../../utils/storage.js";
-import renderBasket from "../renderHtml/renderBasket.js";
-import basketQuantityCounter from "../common/basketQuantityCounter.js";
-import renderModalBasket from "../modals/renderModalBasket.js";
+import { getProductFromBasket, saveToBasket } from "../../../utils/storage.js";
+import renderBasket from "../../renderHtml/renderBasket.js";
+import basketQuantityCounter from "../../common/nav/basketQuantityCounter.js";
+import renderModalBasket from "../../modals/renderModalBasket.js";
 
 export default function removeProductFromBasket() {
     const modalContainer = document.querySelector(".modal__container");
@@ -12,8 +12,6 @@ export default function removeProductFromBasket() {
     const removeProductBtn = document.querySelectorAll(".product__trash");
 
     removeProductBtn.forEach((btn) => { btn.addEventListener("click", removeProduct) });
-
-
 
     function removeProduct() {
         const id = this.dataset.id;

@@ -1,7 +1,7 @@
-import { baseUrl } from "../../data/api.js";
-import displayMessage from "../common/displayMessage.js";
-import MESSAGES from "../../constants/messages.js";
-import { saveToken, saveUser } from "../../utils/storage.js";
+import { baseUrl } from "../../../data/api.js";
+import displayMessage from "../../common/displayMessage.js";
+import MESSAGES from "../../../constants/messages.js";
+import { saveToken, saveUser } from "../../../utils/storage.js";
 
 export default async function sendLoginData(username, password) {
     const url = baseUrl + "auth/local";

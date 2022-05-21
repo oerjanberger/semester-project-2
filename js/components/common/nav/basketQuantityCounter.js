@@ -1,4 +1,4 @@
-import { getProductFromBasket } from "../../utils/storage.js";
+import { getProductFromBasket } from "../../../utils/storage.js";
 
 export default function basketQuantityCounter() {
     const currentProductsInBasket = getProductFromBasket();

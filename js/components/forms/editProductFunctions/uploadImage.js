@@ -1,7 +1,7 @@
-import { baseUrl } from "../../data/api.js";
-import { getToken } from "../../utils/storage.js";
-import displayMessage from "../common/displayMessage.js";
-import MESSAGES from "../../constants/messages.js";
+import { baseUrl } from "../../../data/api.js";
+import { getToken } from "../../../utils/storage.js";
+import displayMessage from "../../common/displayMessage.js";
+import MESSAGES from "../../../constants/messages.js";
 import getUploadedImage from "./getUploadedImage.js"
 
 export default async function uploadImage() {

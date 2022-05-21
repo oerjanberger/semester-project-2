@@ -1,4 +1,4 @@
-import { getProductFromFavorites } from "../../utils/storage.js";
+import { getProductFromFavorites } from "../../../utils/storage.js";
 
 export default function navHeart() {
     const savedToFavorites = getProductFromFavorites();

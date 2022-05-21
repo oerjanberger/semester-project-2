@@ -1,5 +1,5 @@
-import { baseUrl } from "../../data/api.js";
-import { getToken } from "../../utils/storage.js";
+import { baseUrl } from "../../../data/api.js";
+import { getToken } from "../../../utils/storage.js";
 import { populateWithNewImage } from "./populateEditPage.js";
 
 export default async function getUploadedImage(imageId) {

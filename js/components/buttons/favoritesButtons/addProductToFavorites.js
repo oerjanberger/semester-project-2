@@ -1,5 +1,5 @@
-import { getProductFromFavorites, saveToFavorites } from "../../utils/storage.js";
-import navHeart from "../common/navHeart.js";
+import { getProductFromFavorites, saveToFavorites } from "../../../utils/storage.js";
+import navHeart from "../../common/nav/navHeart.js";
 
 export default function addProductToFavorites() {
     const favbtn = document.querySelectorAll(".favorite__button");

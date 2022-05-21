@@ -1,7 +1,7 @@
-import displayMessage from "../common/displayMessage.js";
-import MESSAGES from "../../constants/messages.js";
+import displayMessage from "../../common/displayMessage.js";
+import MESSAGES from "../../../constants/messages.js";
 import sendLoginData from "./sendLoginData.js";
-import { checkLength, checkEmail, checkPassword } from "./validationFunctions.js";
+import { checkLength, checkEmail, checkPassword } from "../validationFunctions.js";
 
 export default function submitLogin(event) {
     event.preventDefault();

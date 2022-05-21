@@ -1,5 +1,5 @@
-import { getProductFromBasket, saveToBasket } from "../../utils/storage.js";
-import basketQuantityCounter from "../common/basketQuantityCounter.js";
+import { getProductFromBasket, saveToBasket } from "../../../utils/storage.js";
+import basketQuantityCounter from "../../common/nav/basketQuantityCounter.js";
 
 export default function addProductToBasket() {
     const addToBasketBtn = document.querySelector(".add__to__basket");
@@ -7,23 +7,25 @@ export default function addProductToBasket() {
     addToBasketBtn.addEventListener("click", addToBasketClick);
 
     function addToBasketClick() {
-        const modalContainer = document.querySelector(".modal__container");
-        const modalLogo = document.querySelector(".modal__logo");
-        const modalMessage = document.querySelector(".modal__message");
-        const continueShoppingBtn = document.querySelector("#cancel__btn");
-        const basketBtn = document.querySelector("#confirm__btn");
         const id = this.dataset.id;
         const title = this.dataset.title;
         const image = this.dataset.image;
         const alt = this.dataset.alt;
         const price = this.dataset.price;
+
+        const modalContainer = document.querySelector(".modal__container");
+        const modalLogo = document.querySelector(".modal__logo");
+        const modalMessage = document.querySelector(".modal__message");
+        const continueShoppingBtn = document.querySelector("#cancel__btn");
+        const basketBtn = document.querySelector("#confirm__btn");
+
         let productCount = 1;
+
         continueShoppingBtn.innerHTML = "Got it"
         basketBtn.innerHTML = "Basket"
         modalContainer.style.display = "block"
 
         const currentProductsInBasket = getProductFromBasket();
-
         const productExists = currentProductsInBasket.find((product) => {
             return product.id === id;
         });
@@ -47,13 +49,10 @@ export default function addProductToBasket() {
 
         continueShoppingBtn.addEventListener("click", () => {
             modalContainer.style.display = "none";
-
         });
         basketBtn.addEventListener("click", () => {
             location.href = "/basket.html"
         });
-
         basketQuantityCounter()
-
     }
 }

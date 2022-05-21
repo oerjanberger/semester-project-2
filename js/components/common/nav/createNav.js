@@ -1,9 +1,9 @@
-import { getToken } from "../../utils/storage.js";
+import { getToken } from "../../../utils/storage.js";
 import stickyNav from "./stickyNav.js";
 import navHeart from "./navHeart.js";
 import basketQuantityCounter from "./basketQuantityCounter.js";
-import logout from "../buttons/logout.js";
-import renderModalBasket from "../modals/renderModalBasket.js";
+import logout from "../../buttons/logout.js";
+import renderModalBasket from "../../modals/renderModalBasket.js";
 
 export default function createNav() {
     stickyNav();

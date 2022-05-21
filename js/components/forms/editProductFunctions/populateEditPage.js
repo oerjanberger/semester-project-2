@@ -1,4 +1,4 @@
-import setToFeatured from "../buttons/setToFeatured.js";
+import setToFeatured from "../../buttons/setToFeatured.js";
 
 export function populateEditPage(product) {
     let productImage = product.attributes.Image.data.attributes.url;
