@@ -78,6 +78,7 @@
     }
 }
 
+// Only show on desktop sized screens
 @media(min-width: 1200px) {
     .minibasket__modal__container {
         display: none;
