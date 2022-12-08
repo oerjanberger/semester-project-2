@@ -1,100 +1,128 @@
-# 🚀 Getting started with Strapi
+# Semester project 2
 
-This repository contains a basic Strapi application which is quickly and easily deployable on Heroku through a one-click deploy button
+![image](./images/Screeshot_semester_project_2.JPG)
 
-<a href="https://www.heroku.com/deploy/?template=https://github.com/strapi/strapi-heroku-template">
-<img src="https://assets.strapi.io/uploads/Deploy_button_heroku_b1043fc67d.png" />
-</a>
+For this semester project I was tasked with creating an e-commerce website that had both customer-facing and admin sections. Building a checkout and payment system was not part of the project
 
-## Requirements
+## Description
 
-To deploy this project on Heroku, you'll need:
+For the e-commerce website I had to choose the theme of the website and design the website using Adobe XD. For this project I also used Heroku with Strapi to create an REST API to use with this site.
 
-- An Heroku account (Free)
-- A Cloudinary account for hosting your assets (Free)
+I had to create a suitable logo and name for the website. I had to to apply all that I had learned from my studies so far. The site had to have good user experience and UI design, following today's trends and design patterns.
 
-## Database
+The site had to include the following pages:
+- Home
+- Product List
+- Product Detail
+- Cart Pages
 
-This project will use the [postgresql Heroku addons](https://elements.heroku.com/addons/heroku-postgresql). The database configuration can be found in the `config/database.js` file. Using the existing configuration means that you project will also use the production postgresql database when running locally on your machine. 
-You will need to have the same `DATABASE_URL` that the addon will create on your Heroku project if you want to use the postresql database locally.
+An admin user had to be able to:
+- create products
+- update products
+- delete products
 
-  - Create an `.env` file at the root of your project containing the following code:
+I also added a favorites page because of user request
+
+### Here is an overview of what the different pages had to have of functionality
+
+### Home page
+The page had to include:
+- a hero banner with an image uploaded to strapi. 
+- a list of featured products. The products had to be marked as featured in Strapi products. When a product was marked as featured it should be displayed on the homepage.
+
+There is also a heart icon on all the products so they can be toggled in and out of favorites.
+
+### Products page
+The page had to include:
+- a list of all products added to Strapi. Each product had to display its title, price and image. The product had to link to its product detail page.
+- a search text box. When searching, only the products that include the searched text in their title or description should be listed.
+
+### Products details page
+This page is reached by a user clicking on a product on the product list page, from the featured products on the homepage, from the basket or from favorites. The page had to include:
+- title
+- description
+- image
+- price
+- an add to basket button. The button adds a product to the basket when pressed and shows a modal with how many items of the same type is in the basket.
+
+### Basket page
+The basket page had to display a list of all products added to the cart. I had to load the items that had been added to local storage and display them on the page. If the cart is empty it displays a message indicating this. 
+
+Each product in the basket must display:
+- title
+- price
+- a link to the product detail page
+- image
+
+After teh list of products I had to display the total price of all the products in the cart.
+
+### Favorites page
+I added the favorites page because of user feedback and displays all the products added to favorites. The user is able to remove one and one product by clicking the heart icon on the product or can remove all products by using the remove favorites button.
+
+### Admin section
+The admin section had to only be accessible to a logged in admin user and had to include the these features:
+
+#### Login/Logout
+I had to create a admin login form that allowed an admin user to login and stayed logged in using local storage.
+
+When logged in, I had to display a button in the nav that logs out the user. I added a modal that asks for a confirmation to log out the user.
+
+#### Add/Edit products
+I had to create a form that allowed for a product to be added, deleted and edited. The form had to allow the admin user to toggle wether a product is featured. I also had to add a confirmation dialog before a user is able to delete an image
+
+I added an edit button to all products if there was a logged in user. I also added a plus icon to the nav so a logged in user could add products.
+
+#### Product images
+For adding/editing images I had to add verify image functionality to check if the image was the correct format and size so the image would not fail in the form submit. 
+
+## Built With
+
+- HTML5
+- JavaScript
+- [Sass](https://sass-lang.com)
+
+## Getting Started
+### Installing
+
+1. Clone the repo:
+
+```bash
+git clone git@github.com:Noroff-FEU-Assignments/js-frameworks-course-assignment-oerjanberger.git
+```
+
+2. Install the dependencies:
 
 ```
-DATABASE_URL=...
+npm install node-sass
 ```
 
-If you want to use an SQLite database just for editing your collection-types, configurations locally on your machine, please comment the postgresql configuration in the `config/database.js` file and uncomment the SQLite one. 
-You can also create a `config/env/production/database.js` file containing the postgresql connection and only keep the SQLite connection in your `config/database.js`. This way you'll have two different database connection depending on the environment.
+3. Add an ".env" file at the root of the project and copy this information
+```bash
+HOST=0.0.0.0
+PORT=1337
 
-## Upload
+DATABASE_URL=postgres://dudbduwaqcvuvr:3440c2832013342996f4fc7b6fd70a88d87136e861c91218833011851f27f5a0@ec2-54-75-184-144.eu-west-1.compute.amazonaws.com:5432/d1s4cv9p8m7b9h
 
-This project will upload your assets on your Cloudinary account. The configuration can be found in the `config/plugins.js` file. Using the existing configuration means that you project will also use the cloudinary upload provider when running locally on your machine.
-You will need to have the same `CLOUDINARY_NAME`, `CLOUDINARY_KEY` and `CLOUDINARY_SECRET` variables in an `.env` file locally on your machine.
+CLOUDINARY_NAME=dvfohuqco
+CLOUDINARY_KEY=871987187337773
+CLOUDINARY_SECRET=1K0jRhN40zrYS0kI8rdukeg3BQI
 
-  - Create an `.env` file at the root of your project containing the following code:
-
-```
-CLOUDINARY_NAME=...
-CLOUDINARY_KEY=...
-CLOUDINARY_SECRET=...
-```
-
-If you want to upload your assets on your computer when running locally on your machine, please comment the content of your `config/plugins.js` file. 
-You can also create a `config/env/production/plugins.js` file containing the cloudinary provider and delete your `config/plugins.js`. This way you'll have two different upload providers depending on the environment.
-
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
-
-### `develop`
-
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
-
-```
-npm run develop
-# or
-yarn develop
+JWT_SECRET=05f31856-6663-43c8-9e7f-1ef1b1a28039
+API_TOKEN_SALT=067dda5c2683da043ff357f6e7f15e2b
 ```
 
-### `start`
+### Running
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
+To run the app locally:
 
-```
-npm run start
-# or
-yarn start
-```
+- Add the extension "Live server"
+- Right click "index.html" and choose "open with Live server"
 
-### `build`
+## Contributing
 
-Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
+Make sure to open a pull request so code can be reviewed.
 
-```
-npm run build
-# or
-yarn build
-```
+## Contact
 
-## ⚙️ Deployment
+[My LinkedIn page](https://www.linkedin.com/in/%C3%B8rjan-berger-80a05889/)
 
-Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
