@@ -96,7 +96,7 @@ git clone git@github.com:Noroff-FEU-Assignments/js-frameworks-course-assignment-
 npm install node-sass
 ```
 
-3. Add an ".env" file at the root of the project and copy this information
+3. Add an `.env` file at the root of the project and copy this information
 ```bash
 HOST=0.0.0.0
 PORT=1337
@@ -115,8 +115,14 @@ API_TOKEN_SALT=067dda5c2683da043ff357f6e7f15e2b
 
 To run the app locally:
 
-- Add the extension "Live server"
-- Right click "index.html" and choose "open with Live server"
+- Add the extension `Live server`
+- Right click `index.html` and choose `open with Live server`
+
+
+This is the login credentials for this assignment:
+
+- username: admin@admin.com
+- password: Pass1234
 
 ## Contributing
 
